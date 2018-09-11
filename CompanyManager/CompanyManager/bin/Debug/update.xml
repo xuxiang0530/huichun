@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="gb2312"?>
+<AutoUpdater>
+  <Url>\\192.168.0.223\it\Software\HDB Development\HDB Tools\DataInformation\</Url>
+  <Application>
+    <AppName>DataInformation.exe</AppName>
+    <AppVersion>1.0.0.2.6</AppVersion>
+    <Message>2016.08.16增加导出和项目名定位</Message>
+    <AppVersion>1.0.0.2.4</AppVersion>
+    <Message>2016.05.18加了个任务条数</Message>
+    <AppVersion>1.0.0.2.3</AppVersion>
+    <Message>2016.04.20增加任务自领功能，取消的任务增加颜色</Message>
+    <AppVersion>1.0.0.2.0</AppVersion>
+    <Message>2016.04.11修改每天换算小时为8小时进制</Message>
+    <AppVersion>1.0.0.1.8</AppVersion>
+    <Message>2016.04.11修改展示时不能更改列宽设置。</Message>
+    <AppVersion>1.0.0.1.7</AppVersion>
+    <Message>2016.04.07修改文件上传存放地址。</Message>
+    <AppVersion>1.0.0.0.9</AppVersion>
+    <Message>0325</Message>
+    <AppVersion>1.0.0.0.0</AppVersion>
+    <Message>1224-first</Message>
+  </Application>
+  <Files>
+    <File Name="DataInformation.exe" Vers="1.0.0.0">
+    </File>
+    <File Name="DataInformation.pdb" Vers="1.0.0.0">
+    </File>
+    <File Name="UpdateLibrary.dll" Vers="1.0.0.0">
+    </File>
+    <File Name="update.xml" Vers="1.0.0.0">
+    </File>
+    <File Name="Task Manager使用说明.docx" Vers="1.0.0.0">
+    </File>
+    <File Name="office.xml" Vers="1.0.0.0">
+    </File>
+    <File Name="Microsoft.Office.Interop.Excel.dll" Vers="1.0.0.0">
+    </File>
+    <File Name="Microsoft.Office.Interop.Excel.xml" Vers="1.0.0.0">
+    </File>
+    <File Name="Microsoft.Vbe.Interop.dll" Vers="1.0.0.0">
+    </File>
+    <File Name="office.dll" Vers="1.0.0.0">
+    </File>
+  </Files>
+</AutoUpdater>

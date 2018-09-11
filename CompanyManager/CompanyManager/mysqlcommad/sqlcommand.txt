@@ -1,0 +1,234 @@
+--创建数据库
+create database huichun;
+
+
+--创建表
+--T_employeeInfo(公司内部员工信息)
+CREATE TABLE T_employeeInfo
+(
+userid INT NOT NULL AUTO_INCREMENT,
+username varchar(50),
+englishname varchar(50),
+usertypeid int,
+userpowerid int,
+birthday date,
+cardtype int,
+idcardno varchar(30),
+sex int,
+employeeno int,
+joindate date,
+onjob int,
+PRIMARY KEY(userid)
+);
+
+
+--TD_type(人员类型)
+CREATE TABLE TD_type
+(
+id INT NOT NULL AUTO_INCREMENT,
+typename varchar(50),
+PRIMARY KEY(id)
+);
+
+--TD_power(人员权限)
+CREATE TABLE TD_power
+(
+id INT NOT NULL AUTO_INCREMENT,
+powername varchar(50),
+note varchar(100),
+PRIMARY KEY(id)
+);
+
+--T_warehouse(细胞库容器)
+CREATE TABLE T_warehouse
+(
+id INT NOT NULL AUTO_INCREMENT,
+type varchar(50),
+note varchar(150),
+location varchar(50),
+PRIMARY KEY(id)
+);
+
+--T_cellLocation(细胞仓库内信息)
+CREATE TABLE T_cellLocation
+(
+cellid int,
+batchid Varchar(50),
+CryoDate date,
+SourceNumber Int,
+QcNumber Varchar(50),
+PRIMARY KEY(batchid)
+);
+
+------------------------------------------
+--T_plateLocation(细胞库容器和板的关系)
+CREATE TABLE T_plateLocation
+(
+plateid int NOT NULL,
+X INT,
+Y INT,
+warehouseid Int,
+PRIMARY KEY(plateid)
+);
+
+
+--T_cellPlateLocation(细胞和板的关系)
+CREATE TABLE T_cellPlateLocation
+(
+cellid int NOT NULL,
+batchid int NOT NULL,
+X INT,
+Y INT,
+plateid Int,
+PRIMARY KEY(cellid,batchid)
+);
+
+--T_cellInfor(细胞信息)
+CREATE TABLE T_cellInfor
+(
+cellid int NOT NULL,
+contractid int,
+cellgetdate date,
+celltypeid int,
+Getuser varchar(30),
+Getlocation varchar(50),
+userid Int,
+PRIMARY KEY(cellid)
+);
+
+
+
+--TD_celltype(细胞类型信息)
+CREATE TABLE TD_celltype
+(
+celltypeid INT NOT NULL AUTO_INCREMENT,
+typename varchar(50),
+PRIMARY KEY(celltypeid)
+);
+
+
+--T_user(细胞来源人信息)供体信息
+CREATE TABLE T_user
+(
+userid  INT NOT NULL AUTO_INCREMENT,
+name  varchar(50),
+sex  int,
+cardtype  int,
+idcardno  varchar(30),
+PRIMARY KEY(userid)
+);
+
+--T_contract(合同信息)
+CREATE TABLE T_contract
+(
+contractid INT NOT NULL AUTO_INCREMENT,
+userid varchar(50),
+contractno varchar(20),
+PRIMARY KEY(contractid)
+);
+
+
+
+
+--T_contractfile(合同文件对应关系表)
+CREATE TABLE T_contractfile
+(
+contractid int,
+fileid int,
+filetypeid int
+);
+
+
+--T_file(文件信息)
+CREATE TABLE T_file
+(
+fileid INT NOT NULL AUTO_INCREMENT,
+filename varchar(150),
+filefullname varchar(250),
+uploaddate datetime,
+uploaduserid varchar(50),
+disableflag int,
+filedata MEDIUMBLOB,
+note varchar(550),
+PRIMARY KEY(fileid)
+);
+
+
+--TD_filetype(文件类型)
+CREATE TABLE TD_filetype
+(
+filetypeid INT NOT NULL AUTO_INCREMENT,
+typename varchar(50),
+note varchar(100),
+PRIMARY KEY(filetypeid)
+);
+
+--T_logistics(物流信息)
+CREATE TABLE T_logistics
+(
+id bigint NOT NULL AUTO_INCREMENT,
+typeid int,
+Temperature varchar(50),
+putuserid varchar(50),
+getuserid varchar(50),
+PRIMARY KEY(id)
+);
+
+--TD_logisticsType(物流类型)
+CREATE TABLE TD_logisticsType
+(
+typeid INT NOT NULL AUTO_INCREMENT,
+typename varchar(50),
+PRIMARY KEY(typeid)
+);
+
+
+--T_logisticstemperature(物流温度)
+CREATE TABLE T_logisticstemperature
+(
+logisticsid int,
+temperature int
+);
+
+
+--T_cellflow
+CREATE TABLE T_cellflow
+(
+cellid int,
+processid int,
+datetime datetime,
+userid varchar(50),
+locationid int
+);
+
+
+--TD_process
+CREATE TABLE TD_process
+(
+id INT NOT NULL AUTO_INCREMENT,
+name varchar(50),
+PRIMARY KEY(id)
+);
+
+
+--T_submit
+CREATE TABLE T_submit
+(
+submitid INT NOT NULL AUTO_INCREMENT,
+submituserid varchar(50),
+datetime datetime,
+pass int,
+passuserid varchar(50),
+passDate datetime,
+passnote varchar(500),
+PRIMARY KEY(submitid)
+);
+
+
+--T_submitBatch
+CREATE TABLE T_submitBatch
+(
+submitid int,
+cellid Int,
+Batched varchar(50)
+);
