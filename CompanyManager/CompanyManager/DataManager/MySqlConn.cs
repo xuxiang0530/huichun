@@ -11,7 +11,22 @@ namespace CompanyManager.DataManager
     class MySqlConn
     {
         static String connetStr = "server=127.0.0.1;port=3306;user=hadoop;password=hadoop; database=huichun;SslMode = none;";
+
         static protected MySqlConnection conn;// = "server=127.0.0.1;port=3306;user=hadoop;password=hadoop; database=huichun;SslMode = none;";
+
+        public static string ConnetStr
+        {
+            get
+            {
+                return connetStr;
+            }
+
+            set
+            {
+                connetStr = string.Format("server={0};port=3306;user=hadoop;password=hadoop; database=huichun;SslMode = none;", value);
+            }
+        }
+
         public MySqlConn()
         {
             // server=127.0.0.1/localhost 代表本机，端口号port默认是3306可以不写
@@ -37,7 +52,7 @@ namespace CompanyManager.DataManager
         {
             System.Data.DataTable dt = new System.Data.DataTable();
             //string sql = "select * from user";
-            conn = new MySqlConnection(connetStr);
+            conn = new MySqlConnection(ConnetStr);
             try
             {
                 conn.Open();
@@ -84,7 +99,7 @@ namespace CompanyManager.DataManager
             //string sql = "insert into user(username,password,registerdate) values('啊宽','123','" + DateTime.Now + "')";
             //string sql = "delete from user where userid='9'";
             //string sql = "update user set username='啊哈',password='123' where userid='8'";
-            conn = new MySqlConnection(connetStr);
+            conn = new MySqlConnection(ConnetStr);
             try
             {
                 conn.Open();
@@ -96,7 +111,7 @@ namespace CompanyManager.DataManager
                 }
                 result = cmd.ExecuteNonQuery();//3.执行插入、删除、更改语句。执行成功返回受影响的数据的行数，返回1可做true判断。执行失败不返回任何数据，报错，下面代码都不执行
             }
-            catch
+            catch(Exception ex)
             {
                 result = -1;
             }
@@ -117,7 +132,7 @@ namespace CompanyManager.DataManager
         {
             System.Data.DataTable dt = new System.Data.DataTable();
             //string sql = "select * from user";
-            conn = new MySqlConnection(connetStr);
+            conn = new MySqlConnection(ConnetStr);
             try
             {
                 conn.Open();

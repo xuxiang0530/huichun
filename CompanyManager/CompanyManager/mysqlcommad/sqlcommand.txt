@@ -18,6 +18,8 @@ sex int,
 employeeno int,
 joindate date,
 onjob int,
+email varchar(100),
+pwd varchar(200),
 PRIMARY KEY(userid)
 );
 

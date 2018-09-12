@@ -13,3 +13,17 @@ D:\zhuXueJing\huichunManagerSystem\huichunManagerSystem\CompanyManager\CompanyMa
 D:\zhuXueJing\huichunManagerSystem\huichunManagerSystem\CompanyManager\CompanyManager\obj\Debug\CompanyManager.Login.resources
 D:\zhuXueJing\huichunManagerSystem\huichunManagerSystem\CompanyManager\CompanyManager\obj\Debug\CompanyManager.mainForm.resources
 D:\zhuXueJing\huichunManagerSystem\huichunManagerSystem\CompanyManager\CompanyManager\obj\Debug\CompanyManager.csprojResolveAssemblyReference.cache
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\bin\Debug\CompanyManager.exe.config
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.exe
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.pdb
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\bin\Debug\CompanyManager.exe
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\bin\Debug\CompanyManager.pdb
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\bin\Debug\Google.Protobuf.dll
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\bin\Debug\MySql.Data.dll
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\bin\Debug\Google.Protobuf.xml
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\bin\Debug\MySql.Data.xml
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.csprojResolveAssemblyReference.cache
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.Login.resources
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.Properties.Resources.resources
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.mainForm.resources
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.csproj.GenerateResource.Cache

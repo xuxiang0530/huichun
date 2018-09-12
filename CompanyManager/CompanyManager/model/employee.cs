@@ -34,6 +34,7 @@ namespace CompanyManager.model
         public employee(string email,string pwd)
         {
             string[] para = new string[] { email, pwd };
+
             DataTable dt = Select("select userid,username,englishname,usertypeid,userpowerid,birthday,cardtype,idcardno,sex,employeeno,joindate," 
                 + "onjob,email from T_employeeInfo where email = @para1 and pwd = @para2 and onjob = 1", para);
 
