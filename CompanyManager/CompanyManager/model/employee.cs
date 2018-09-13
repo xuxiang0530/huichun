@@ -62,37 +62,41 @@ namespace CompanyManager.model
             }
         }
 
-        public void test()
-        {
-            string[] para1 = new string[] { "test" };
-            string[] para2 = new string[] { "test", "test" };
-            string[] para3 = new string[] { "test", "test", "test" };
-            string[] para4 = new string[] { "test", "test", "test", "test" };
+
+        #region 测试代码
+        //public void test()
+        //{
+        //    string[] para1 = new string[] { "test" };
+        //    string[] para2 = new string[] { "test", "test" };
+        //    string[] para3 = new string[] { "test", "test", "test" };
+        //    string[] para4 = new string[] { "test", "test", "test", "test" };
 
 
-            DataTable dt = Select("select * from TD_power");
-            if (dt != null && dt.Rows.Count == 0)
-            {
-                int rows = ExecuteNonQuery("insert into TD_power (powername,note) values (@para1,@para2)", para2);
-            }
+        //    DataTable dt = Select("select * from TD_power");
+        //    if (dt != null && dt.Rows.Count == 0)
+        //    {
+        //        int rows = ExecuteNonQuery("insert into TD_power (powername,note) values (@para1,@para2)", para2);
+        //    }
 
-            dt = Select("select * from TD_type");
-            if (dt != null && dt.Rows.Count == 0)
-            {
-                int rows = ExecuteNonQuery("insert into TD_type (typename) values (@para1)", para1);
-            }
+        //    dt = Select("select * from TD_type");
+        //    if (dt != null && dt.Rows.Count == 0)
+        //    {
+        //        int rows = ExecuteNonQuery("insert into TD_type (typename) values (@para1)", para1);
+        //    }
 
-            dt = Select("select * from T_employeeInfo");
+        //    dt = Select("select * from T_employeeInfo");
 
 
-            if (dt != null && dt.Rows.Count == 0)
-            {
-                string[] parauser = new string[] { "xuxiang", "xux", "1", "1", "1980-05-30", "1", "310103198005301616", "1", "2018-09-01", "1", "tianyaxx@163.com", "test".Md5() };
-                int rows = ExecuteNonQuery("insert into T_employeeInfo (username,englishname,usertypeid,userpowerid,birthday,cardtype,idcardno,sex,joindate,onjob,email,pwd) values (@para1,@para2,@para3,@para4,@para5,@para6,@para7,@para8,@para9,@para10,@para11,@para12)", parauser);
-            }
+        //    if (dt != null && dt.Rows.Count == 0)
+        //    {
+        //        string[] parauser = new string[] { "xuxiang", "xux", "1", "1", "1980-05-30", "1", "310103198005301616", "1", "2018-09-01", "1", "tianyaxx@163.com", "test".Md5() };
+        //        int rows = ExecuteNonQuery("insert into T_employeeInfo (username,englishname,usertypeid,userpowerid,birthday,cardtype,idcardno,sex,joindate,onjob,email,pwd) values (@para1,@para2,@para3,@para4,@para5,@para6,@para7,@para8,@para9,@para10,@para11,@para12)", parauser);
+        //    }
             
 
-        }
+        //}
+        #endregion
+
         public int Userid
         {
             get
@@ -277,5 +281,11 @@ namespace CompanyManager.model
         }
         #endregion
 
+
+        public int SavePwd()
+        {
+
+            return ExecuteNonQuery("update T_employeeInfo set pwd = @para1", new string[] { Pwd });
+        }
     }
 }

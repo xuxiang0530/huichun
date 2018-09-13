@@ -76,6 +76,11 @@ namespace CompanyManager
             {
                 xuxstatic.xuxSeecion.LOGINUSER = ey;
                 mainForm mf = new mainForm();
+                this.Hide();
+                if (mf.ShowDialog() == DialogResult.OK)
+                {
+                    this.Close();
+                }
             }
             else
             {

@@ -82,6 +82,12 @@
     <Compile Include="public\mainForm.Designer.cs">
       <DependentUpon>mainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="public\PasswordUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="public\PasswordUpload.Designer.cs">
+      <DependentUpon>PasswordUpload.cs</DependentUpon>
+    </Compile>
     <Compile Include="TextBoxTool.cs" />
     <Compile Include="xuxstatic\StringBuff.cs" />
     <Compile Include="xuxstatic\xuxstatic.cs" />
@@ -100,6 +106,9 @@
     </Compile>
     <EmbeddedResource Include="public\mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="public\PasswordUpload.resx">
+      <DependentUpon>PasswordUpload.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

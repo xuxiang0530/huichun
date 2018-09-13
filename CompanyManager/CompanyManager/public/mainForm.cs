@@ -21,5 +21,21 @@ namespace CompanyManager
             
         }
 
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void 系统ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UploadPasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PasswordUpload pufm = new PasswordUpload();
+            pufm.ShowDialog();
+        }
     }
 }
