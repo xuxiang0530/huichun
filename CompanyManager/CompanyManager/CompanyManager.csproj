@@ -41,6 +41,12 @@
       <HintPath>..\packages\MySql.Data.8.0.12\lib\net452\MySql.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="O2S.Components.PDFRender4NET">
+      <HintPath>..\..\..\O2S.Components.PDFRender4NET.dll</HintPath>
+    </Reference>
+    <Reference Include="O2S.Components.PDFView4NET">
+      <HintPath>..\..\..\O2S.Components.PDFView4NET.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -65,6 +71,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InitTool.cs" />
+    <Compile Include="public\AdminManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="public\AdminManager.Designer.cs">
+      <DependentUpon>AdminManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataAcc.cs" />
     <Compile Include="DataManager\MySqlConn.cs" />
     <Compile Include="Login.cs">
@@ -104,6 +117,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="public\AdminManager.resx">
+      <DependentUpon>AdminManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="public\mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>

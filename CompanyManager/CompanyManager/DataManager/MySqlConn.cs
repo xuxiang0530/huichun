@@ -14,6 +14,122 @@ namespace CompanyManager.DataManager
 
         static protected MySqlConnection conn;// = "server=127.0.0.1;port=3306;user=hadoop;password=hadoop; database=huichun;SslMode = none;";
 
+
+        #region 修改接口
+        public static int DoCommand(string sql, string[] para)
+        {
+            int result = -1;
+            conn = new MySqlConnection(ConnetStr);
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                for (int i = 0; i < para.Length; i++)
+                {
+
+                    cmd.Parameters.AddWithValue("para" + (i + 1).ToString(), para[i]);
+                }
+                result = cmd.ExecuteNonQuery();//3.执行插入、删除、更改语句。执行成功返回受影响的数据的行数，返回1可做true判断。执行失败不返回任何数据，报错，下面代码都不执行
+            }
+            catch (Exception ex)
+            {
+                result = -1;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return result;
+        }
+        public static int DoCommand(string sql)
+        {
+            int result = -1;
+            conn = new MySqlConnection(ConnetStr);
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+               
+                result = cmd.ExecuteNonQuery();//3.执行插入、删除、更改语句。执行成功返回受影响的数据的行数，返回1可做true判断。执行失败不返回任何数据，报错，下面代码都不执行
+            }
+            catch (Exception ex)
+            {
+                result = -1;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return result;
+        }
+        #endregion
+
+        
+        public static System.Data.DataSet GetDataSet(string sql)
+        {
+            //DataSet ds = new DataSet();
+            //string conn = sqlconn;
+            //SqlConnection con = new SqlConnection(conn);
+            //SqlCommand cmd = new SqlCommand(sql, con);
+            //cmd.CommandTimeout = 180;
+            //SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            //adp.Fill(ds);
+            System.Data.DataSet ds = new System.Data.DataSet();
+            conn = new MySqlConnection(ConnetStr);
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.CommandTimeout = 180;
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                adp.Fill(ds);
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return ds;
+        }
+        public static System.Data.DataSet GetDataSet(string sql,string[] para)
+        {
+            //DataSet ds = new DataSet();
+            //string conn = sqlconn;
+            //SqlConnection con = new SqlConnection(conn);
+            //SqlCommand cmd = new SqlCommand(sql, con);
+            //cmd.CommandTimeout = 180;
+            //SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            //adp.Fill(ds);
+            System.Data.DataSet ds = new System.Data.DataSet();
+            conn = new MySqlConnection(ConnetStr);
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.CommandTimeout = 180;
+                for (int i = 0; i < para.Length; i++)
+                {
+
+                    cmd.Parameters.AddWithValue("para" + (i + 1).ToString(), para[i]);
+                }
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                adp.Fill(ds);
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return ds;
+        }
+
+
         public static string ConnetStr
         {
             get

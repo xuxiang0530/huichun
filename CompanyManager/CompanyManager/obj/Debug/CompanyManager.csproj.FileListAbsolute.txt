@@ -36,9 +36,11 @@ D:\zhuXueJing\huichunManagerSystem\CompanyManager\CompanyManager\bin\Debug\Googl
 D:\zhuXueJing\huichunManagerSystem\CompanyManager\CompanyManager\bin\Debug\MySql.Data.dll
 D:\zhuXueJing\huichunManagerSystem\CompanyManager\CompanyManager\bin\Debug\Google.Protobuf.xml
 D:\zhuXueJing\huichunManagerSystem\CompanyManager\CompanyManager\bin\Debug\MySql.Data.xml
-D:\zhuXueJing\huichunManagerSystem\CompanyManager\CompanyManager\obj\Debug\CompanyManager.csprojResolveAssemblyReference.cache
 D:\zhuXueJing\huichunManagerSystem\CompanyManager\CompanyManager\obj\Debug\CompanyManager.Login.resources
 D:\zhuXueJing\huichunManagerSystem\CompanyManager\CompanyManager\obj\Debug\CompanyManager.Properties.Resources.resources
 D:\zhuXueJing\huichunManagerSystem\CompanyManager\CompanyManager\obj\Debug\CompanyManager.mainForm.resources
 D:\zhuXueJing\huichunManagerSystem\CompanyManager\CompanyManager\obj\Debug\CompanyManager.PasswordUpload.resources
 D:\zhuXueJing\huichunManagerSystem\CompanyManager\CompanyManager\obj\Debug\CompanyManager.csproj.GenerateResource.Cache
+D:\zhuXueJing\huichunManagerSystem\CompanyManager\CompanyManager\obj\Debug\CompanyManager.AdminManager.resources
+D:\zhuXueJing\huichunManagerSystem\CompanyManager\CompanyManager\bin\Debug\O2S.Components.PDFRender4NET.dll
+D:\zhuXueJing\huichunManagerSystem\CompanyManager\CompanyManager\bin\Debug\O2S.Components.PDFView4NET.dll
