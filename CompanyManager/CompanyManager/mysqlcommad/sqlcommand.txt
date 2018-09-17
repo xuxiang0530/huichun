@@ -124,7 +124,7 @@ PRIMARY KEY(userid)
 CREATE TABLE T_contract
 (
 contractid INT NOT NULL AUTO_INCREMENT,
-userid varchar(50),
+userid int,
 contractno varchar(20),
 PRIMARY KEY(contractid)
 );
@@ -233,4 +233,42 @@ CREATE TABLE T_submitBatch
 submitid int,
 cellid Int,
 Batched varchar(50)
+);
+
+
+--T_funcation(处理工艺)
+CREATE TABLE T_funcation
+(
+id INT NOT NULL AUTO_INCREMENT,
+name varchar(50),
+note varchar(300),
+PRIMARY KEY(id)
+);
+
+--T_flow(作业流程名称)
+CREATE TABLE T_flow
+(
+id INT NOT NULL AUTO_INCREMENT,
+name varchar(50),
+note varchar(300),
+PRIMARY KEY(id)
+);
+
+--T_funcationflow(处理步骤)
+CREATE TABLE T_funcationflow
+(
+funcationid INT NOT NULL ,
+step INT not null,
+flowid INT NOT NULL ,
+userid int,
+PRIMARY KEY(funcationid,step)
+);
+
+
+--T_cellfuncation(单独细胞处理作业选择)
+CREATE TABLE T_cellfuncation
+(
+cellid INT NOT NULL ,
+funcationid varchar(50),
+note varchar(300)
 );

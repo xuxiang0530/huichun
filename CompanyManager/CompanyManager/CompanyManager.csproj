@@ -71,7 +71,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InitTool.cs" />
+    <Compile Include="model\cell.cs" />
+    <Compile Include="model\celluser.cs" />
+    <Compile Include="model\contract.cs" />
+    <Compile Include="model\plate.cs" />
+    <Compile Include="model\warehouse.cs" />
+    <Compile Include="xuxstatic\InitTool.cs" />
     <Compile Include="public\AdminManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,7 +106,7 @@
     <Compile Include="public\PasswordUpload.Designer.cs">
       <DependentUpon>PasswordUpload.cs</DependentUpon>
     </Compile>
-    <Compile Include="TextBoxTool.cs" />
+    <Compile Include="xuxstatic\TextBoxTool.cs" />
     <Compile Include="xuxstatic\StringBuff.cs" />
     <Compile Include="xuxstatic\xuxstatic.cs" />
     <EmbeddedResource Include="Login.resx">
