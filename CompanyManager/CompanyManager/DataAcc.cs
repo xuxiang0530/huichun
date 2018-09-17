@@ -65,24 +65,24 @@ namespace CompanyManager
             }
             return names;
         }
-        public static int DoCommand(string sql)
-        {
-            int r = -1;
-            string conn = sqlconn;
-            SqlConnection con = new SqlConnection(conn);
-            SqlCommand cmd = new SqlCommand(sql, con);
-            try
-            {
-                con.Open();
-                r = cmd.ExecuteNonQuery();
-            }
-            catch (Exception e) { writeTxt(e.Message); }
-            finally
-            {
-                con.Close();
-            }
-            return r;
-        }
+        //public static int DoCommand(string sql)
+        //{
+        //    int r = -1;
+        //    string conn = sqlconn;
+        //    SqlConnection con = new SqlConnection(conn);
+        //    SqlCommand cmd = new SqlCommand(sql, con);
+        //    try
+        //    {
+        //        con.Open();
+        //        r = cmd.ExecuteNonQuery();
+        //    }
+        //    catch (Exception e) { writeTxt(e.Message); }
+        //    finally
+        //    {
+        //        con.Close();
+        //    }
+        //    return r;
+        //}
         public static string FilePathFull()
         {
             //string filepath = System.AppDomain.CurrentDomain.BaseDirectory;
@@ -125,17 +125,17 @@ namespace CompanyManager
             System.Array.Copy(res, temp, res.Length);
             return new String(temp);
         }
-        public static DataSet GetDataSet(string sql)
-        {
-            DataSet ds = new DataSet();
-            string conn = sqlconn;
-            SqlConnection con = new SqlConnection(conn);
-            SqlCommand cmd = new SqlCommand(sql, con);
-            cmd.CommandTimeout = 180;
-            SqlDataAdapter adp = new SqlDataAdapter(cmd);
-            adp.Fill(ds);
-            return ds;
-        }
+        //public static DataSet GetDataSet(string sql)
+        //{
+        //    DataSet ds = new DataSet();
+        //    string conn = sqlconn;
+        //    SqlConnection con = new SqlConnection(conn);
+        //    SqlCommand cmd = new SqlCommand(sql, con);
+        //    cmd.CommandTimeout = 180;
+        //    SqlDataAdapter adp = new SqlDataAdapter(cmd);
+        //    adp.Fill(ds);
+        //    return ds;
+        //}
 
         public static bool IsNumeric(string value)
         {
