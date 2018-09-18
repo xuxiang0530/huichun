@@ -33,6 +33,7 @@ namespace CompanyManager.model
 
         public employee(string email,string pwd)
         {
+            //test();
             string[] para = new string[] { email, pwd };
 
             DataTable dt = Select("select userid,username,englishname,usertypeid,userpowerid,birthday,cardtype,idcardno,sex,employeeno,joindate," 
@@ -92,7 +93,7 @@ namespace CompanyManager.model
         //        string[] parauser = new string[] { "xuxiang", "xux", "1", "1", "1980-05-30", "1", "310103198005301616", "1", "2018-09-01", "1", "tianyaxx@163.com", "test".Md5() };
         //        int rows = ExecuteNonQuery("insert into T_employeeInfo (username,englishname,usertypeid,userpowerid,birthday,cardtype,idcardno,sex,joindate,onjob,email,pwd) values (@para1,@para2,@para3,@para4,@para5,@para6,@para7,@para8,@para9,@para10,@para11,@para12)", parauser);
         //    }
-            
+
 
         //}
         #endregion

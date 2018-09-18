@@ -146,6 +146,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="mysqlcommad\createTables.txt" />
     <Content Include="mysqlcommad\sqlcommand.txt" />
   </ItemGroup>
   <ItemGroup>

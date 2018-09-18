@@ -13,57 +13,68 @@ namespace CompanyManager
 {
     public partial class AdminManager : Form
     {
-        DataTable dtUserList = null;
+        DataTable userType;
+        DataTable userPower;
+        DataTable fileType;
+
         public AdminManager()
         {
             InitializeComponent();
             dataGridView1.DataGridViewInit();
             dataGridView2.DataGridViewInit();
             dataGridView3.DataGridViewInit();
-            sx_dataGridview1();
-            sx_dataGridview2();
-            DataTable dt = MySqlConn.GetDataSet("SELECT id,TypeName FROM [DB_DataInformation].[dbo].[TD_UserType]").Tables[0];
-            comboBox2.ComboBoxInit(dt, "id", "TypeName");
+            dataGridView4.DataGridViewInit();
 
-            dtUserList = MySqlConn.GetDataSet(string.Format("SELECT USERID,USERNAME,EMAIL  FROM DB_UserManager.dbo.T_USER WHERE ISZZ = 1")).Tables[0];
+            sx_dataGridview1fileType();
+            sx_dataGridview2userType();
+            sx_dataGridview4userPower();
 
-            if (dtUserList.Rows.Count > 0)
-            {
-                string[] cn = new string[dtUserList.Rows.Count];
-                for (int i = 0; i < cn.Length; i++)
-                {
-                    cn[i] = dtUserList.Rows[i].ItemArray[2].ToString();
-                }
-                comboBox1.AutoCompleteCustomSource.AddRange(cn);
-            }
+            
+            //if (dtUserList.Rows.Count > 0)
+            //{
+            //    string[] cn = new string[dtUserList.Rows.Count];
+            //    for (int i = 0; i < cn.Length; i++)
+            //    {
+            //        cn[i] = dtUserList.Rows[i].ItemArray[2].ToString();
+            //    }
+            //    comboBox1.AutoCompleteCustomSource.AddRange(cn);
+            //}
         }
 
         protected override void OnClosing(CancelEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
         }
-        private void sx_dataGridview1()
+        private void sx_dataGridview1fileType()
         {
-            string sqlstr = "SELECT a.id,a.TypeName [文件类型] FROM DB_DataInformation.dbo.TD_FileType a";
+            string sqlstr = "SELECT a.filetypeid id,a.typename,note  FROM TD_filetype a";
             DataTable dt = MySqlConn.GetDataSet(string.Format(sqlstr)).Tables[0];
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = dt;
+
+            dataGridView1.Columns[dt.Columns.IndexOf("typename")].HeaderCell.Value = "文件类型";
+            dataGridView1.Columns[dt.Columns.IndexOf("note")].HeaderCell.Value = "备注";
         }
 
-        private void sx_dataGridview2()
+        private void sx_dataGridview2userType()
         {
-            string sqlstr = "SELECT a.ID id,a.[type] [保密等级] FROM DB_DataInformation.dbo.T_FileSecrecyGrade a";
+            string sqlstr = "SELECT a.id,a.typename  FROM TD_type a";
             DataTable dt = MySqlConn.GetDataSet(string.Format(sqlstr)).Tables[0];
             dataGridView2.DataSource = null;
             dataGridView2.DataSource = dt;
+
+            dataGridView2.Columns[dt.Columns.IndexOf("typename")].HeaderCell.Value = "人员类型";
         }
 
-        private void sx_dataGridview3()
+        private void sx_dataGridview4userPower()
         {
-            string sqlstr = "";
+            string sqlstr = "select id,powername ,note  from TD_power;";
             DataTable dt = MySqlConn.GetDataSet(string.Format(sqlstr)).Tables[0];
-            dataGridView3.DataSource = null;
-            dataGridView3.DataSource = dt;
+            dataGridView4.DataSource = null;
+            dataGridView4.DataSource = dt;
+
+            dataGridView4.Columns[dt.Columns.IndexOf("powername")].HeaderCell.Value = "权限名称";
+            dataGridView4.Columns[dt.Columns.IndexOf("note")].HeaderCell.Value = "备注";
         }
 
 
@@ -89,7 +100,16 @@ namespace CompanyManager
         private void button1_Click(object sender, EventArgs e)
         {
             string fileTypeName = textBox1.Text.Trim();
+            string note  = textBox5.Text.Trim();
 
+            foreach (DataGridViewRow dr in dataGridView1.Rows)
+            {
+                if (dr.Cells[1].Value.ToString().Equals(fileTypeName))
+                {
+                    MessageBox.Show("已有..");
+                    return;
+                }
+            }
             if (fileTypeName.Equals(""))
             {
                 MessageBox.Show("value is null");
@@ -97,11 +117,12 @@ namespace CompanyManager
             }
             else
             {
-                string strSql = string.Format("INSERT INTO DB_DataInformation.dbo.TD_FileType VALUES(N'{0}')", fileTypeName);
+                string strSql = string.Format("INSERT INTO TD_filetype(typename,note) VALUES(N'{0}',N'{1}')", fileTypeName,note);
 
                 MySqlConn.DoCommand(strSql);
                 textBox1.Text = "";
-                sx_dataGridview1();
+                textBox5.Text = "";
+                sx_dataGridview1fileType();
                 MessageBox.Show("Successfully");
             }
 
@@ -109,48 +130,71 @@ namespace CompanyManager
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string SecrecyGrade = textBox2.Text.Trim();
+            string userType = textBox2.Text.Trim();
 
-            if (SecrecyGrade.Equals(""))
+
+            foreach (DataGridViewRow dr in dataGridView2.Rows)
+            {
+                if (dr.Cells[1].Value.ToString().Equals(userType))
+                {
+                    MessageBox.Show("已有..");
+                    return;
+                }
+            }
+
+            if (userType.Equals(""))
             {
                 MessageBox.Show("value is null");
                 return;
             }
             else
             {
-                string strSql = string.Format("INSERT INTO DB_DataInformation.dbo.T_FileSecrecyGrade VALUES(N'{0}')", SecrecyGrade);
+                string strSql = string.Format("INSERT INTO TD_type(typename) VALUES(N'{0}')", userType);
 
-                MySqlConn.DoCommand(strSql);
-                textBox2.Text = "";
-                sx_dataGridview2();
-                MessageBox.Show("Successfully");
+                if (MySqlConn.DoCommand(strSql) > 0)
+                {
+                    textBox2.Text = "";
+                    sx_dataGridview2userType();
+                    MessageBox.Show("Successfully");
+                }
+                else
+                {
+                    MessageBox.Show("error");
+                }
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string userId = "";
-            string strCombobox = comboBox1.Text.Trim();
-            string strSql = "INSERT INTO DB_DataInformation.dbo.T_UserInfo(UserId,UserTypeId) VALUES('{0}',{1})";
-            foreach (DataRow dr in dtUserList.Rows)
+            string powerName = textBox3.Text.Trim();
+            string note = textBox4.Text.Trim();
+
+            string strSql = "INSERT INTO TD_power(powername,note) VALUES(N'{0}',N'{1}')";
+
+            foreach(DataGridViewRow dr in dataGridView4.Rows)
             {
-                if(dr.ItemArray[3].ToString().Equals(strCombobox))
+                if(dr.Cells[1].Value.ToString().Equals(powerName))
                 {
-                    userId = dr.ItemArray[0].ToString();
+                    MessageBox.Show("已有..");
+                    return;
                 }
             }
 
-            if(userId.Equals(""))
+            if (powerName.Equals(""))
             {
-                MessageBox.Show("你输入的邮箱不对,核实哦");
+                MessageBox.Show("value is null");
                 return;
             }
             else
             {
-                if(
-                MySqlConn.DoCommand(string.Format(strSql,userId,comboBox2.SelectedValue.ToString()))
-                    > 0)
+                if (
+            MySqlConn.DoCommand(string.Format(strSql, powerName, note))
+                > 0)
                 {
+                    sx_dataGridview4userPower();
+                    textBox3.Text = "";
+                    textBox4.Text = "";
+
                     MessageBox.Show("Seccessfully");
                 }
                 else
@@ -158,6 +202,12 @@ namespace CompanyManager
                     MessageBox.Show("sql error");
                 }
             }
+           
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

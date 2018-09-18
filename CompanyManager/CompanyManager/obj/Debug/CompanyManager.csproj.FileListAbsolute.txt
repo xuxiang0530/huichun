@@ -59,3 +59,5 @@ D:\zhuXueJing\huichunManagerSystem\huichun\CompanyManager\CompanyManager\obj\Deb
 D:\zhuXueJing\huichunManagerSystem\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.mainForm.resources
 D:\zhuXueJing\huichunManagerSystem\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.PasswordUpload.resources
 D:\zhuXueJing\huichunManagerSystem\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.csproj.GenerateResource.Cache
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.AdminManager.resources
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.PasswordUpload.resources

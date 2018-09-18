@@ -1,17 +1,4 @@
---在 [mysqld] 标签下加上以下内容： /etc/my.cnf
-[mysqld]
-default-character-set = utf8
-character_set_server = utf8
-[mysql]
-default-character-set=utf8
-
---创建数据库
-create database huichun;
-
-
---创建表
---T_employeeInfo(公司内部员工信息)
-CREATE TABLE T_employeeInfo
+﻿CREATE TABLE T_employeeInfo
 (
 userid INT NOT NULL AUTO_INCREMENT,
 username varchar(50),
@@ -31,7 +18,6 @@ PRIMARY KEY(userid)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
---TD_type(人员类型)
 CREATE TABLE TD_type
 (
 id INT NOT NULL AUTO_INCREMENT,
@@ -39,7 +25,6 @@ typename varchar(50),
 PRIMARY KEY(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---TD_power(人员权限)
 CREATE TABLE TD_power
 (
 id INT NOT NULL AUTO_INCREMENT,
@@ -48,7 +33,6 @@ note varchar(100),
 PRIMARY KEY(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---T_warehouse(细胞库容器)
 CREATE TABLE T_warehouse
 (
 id INT NOT NULL AUTO_INCREMENT,
@@ -58,7 +42,6 @@ location varchar(50),
 PRIMARY KEY(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---T_cellLocation(细胞仓库内信息)
 CREATE TABLE T_cellLocation
 (
 cellid int,
@@ -69,8 +52,6 @@ QcNumber Varchar(50),
 PRIMARY KEY(batchid)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-------------------------------------------
---T_plateLocation(细胞库容器和板的关系)
 CREATE TABLE T_plateLocation
 (
 plateid int NOT NULL,
@@ -81,7 +62,6 @@ PRIMARY KEY(plateid)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
---T_cellPlateLocation(细胞和板的关系)
 CREATE TABLE T_cellPlateLocation
 (
 cellid int NOT NULL,
@@ -92,7 +72,6 @@ plateid Int,
 PRIMARY KEY(cellid,batchid)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---T_cellInfor(细胞信息)
 CREATE TABLE T_cellInfor
 (
 cellid int NOT NULL,
@@ -107,7 +86,6 @@ PRIMARY KEY(cellid)
 
 
 
---TD_celltype(细胞类型信息)
 CREATE TABLE TD_celltype
 (
 celltypeid INT NOT NULL AUTO_INCREMENT,
@@ -116,7 +94,6 @@ PRIMARY KEY(celltypeid)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
---T_user(细胞来源人信息)供体信息
 CREATE TABLE T_user
 (
 userid  INT NOT NULL AUTO_INCREMENT,
@@ -127,7 +104,6 @@ idcardno  varchar(30),
 PRIMARY KEY(userid)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---T_contract(合同信息)
 CREATE TABLE T_contract
 (
 contractid INT NOT NULL AUTO_INCREMENT,
@@ -139,7 +115,6 @@ PRIMARY KEY(contractid)
 
 
 
---T_contractfile(合同文件对应关系表)
 CREATE TABLE T_contractfile
 (
 contractid int,
@@ -148,7 +123,6 @@ filetypeid int
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
---T_file(文件信息)
 CREATE TABLE T_file
 (
 fileid INT NOT NULL AUTO_INCREMENT,
@@ -162,8 +136,6 @@ note varchar(550),
 PRIMARY KEY(fileid)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
---TD_filetype(文件类型)
 CREATE TABLE TD_filetype
 (
 filetypeid INT NOT NULL AUTO_INCREMENT,
@@ -172,7 +144,6 @@ note varchar(100),
 PRIMARY KEY(filetypeid)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---T_logistics(物流信息)
 CREATE TABLE T_logistics
 (
 id bigint NOT NULL AUTO_INCREMENT,
@@ -183,7 +154,6 @@ getuserid varchar(50),
 PRIMARY KEY(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---TD_logisticsType(物流类型)
 CREATE TABLE TD_logisticsType
 (
 typeid INT NOT NULL AUTO_INCREMENT,
@@ -192,7 +162,6 @@ PRIMARY KEY(typeid)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
---T_logisticstemperature(物流温度)
 CREATE TABLE T_logisticstemperature
 (
 logisticsid int,
@@ -200,7 +169,6 @@ temperature int
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
---T_cellflow
 CREATE TABLE T_cellflow
 (
 cellid int,
@@ -211,7 +179,6 @@ locationid int
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
---TD_process
 CREATE TABLE TD_process
 (
 id INT NOT NULL AUTO_INCREMENT,
@@ -220,7 +187,6 @@ PRIMARY KEY(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
---T_submit
 CREATE TABLE T_submit
 (
 submitid INT NOT NULL AUTO_INCREMENT,
@@ -234,7 +200,6 @@ PRIMARY KEY(submitid)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
---T_submitBatch
 CREATE TABLE T_submitBatch
 (
 submitid int,
@@ -243,7 +208,6 @@ Batched varchar(50)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
---T_funcation(处理工艺)
 CREATE TABLE T_funcation
 (
 id INT NOT NULL AUTO_INCREMENT,
@@ -252,7 +216,6 @@ note varchar(300),
 PRIMARY KEY(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---T_flow(作业流程名称)
 CREATE TABLE T_flow
 (
 id INT NOT NULL AUTO_INCREMENT,
@@ -261,7 +224,6 @@ note varchar(300),
 PRIMARY KEY(id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---T_funcationflow(处理步骤)
 CREATE TABLE T_funcationflow
 (
 funcationid INT NOT NULL ,
@@ -272,7 +234,6 @@ PRIMARY KEY(funcationid,step)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
---T_cellfuncation(单独细胞处理作业选择)
 CREATE TABLE T_cellfuncation
 (
 cellid INT NOT NULL ,

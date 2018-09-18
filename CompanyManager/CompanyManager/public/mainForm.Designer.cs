@@ -45,14 +45,15 @@
             this.设置ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1393, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1045, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // 系统ToolStripMenuItem
             // 
             this.系统ToolStripMenuItem.Name = "系统ToolStripMenuItem";
-            this.系统ToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
+            this.系统ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.系统ToolStripMenuItem.Text = "系统";
             this.系统ToolStripMenuItem.Click += new System.EventHandler(this.系统ToolStripMenuItem_Click);
             // 
@@ -62,7 +63,7 @@
             this.UploadPasswordToolStripMenuItem.Name = "UploadPasswordToolStripMenuItem";
             this.UploadPasswordToolStripMenuItem.Padding = new System.Windows.Forms.Padding(1, 0, 30, 0);
             this.UploadPasswordToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.UploadPasswordToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
+            this.UploadPasswordToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.UploadPasswordToolStripMenuItem.Text = "修改密码";
             this.UploadPasswordToolStripMenuItem.Click += new System.EventHandler(this.UploadPasswordToolStripMenuItem_Click);
             // 
@@ -70,17 +71,19 @@
             // 
             this.设置ToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.设置ToolStripMenuItem.Text = "设置";
+            this.设置ToolStripMenuItem.Click += new System.EventHandler(this.设置ToolStripMenuItem_Click);
             // 
             // mainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1393, 752);
+            this.ClientSize = new System.Drawing.Size(1045, 652);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "main";
