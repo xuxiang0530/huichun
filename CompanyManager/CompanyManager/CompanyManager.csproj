@@ -76,6 +76,7 @@
     <Compile Include="model\contract.cs" />
     <Compile Include="model\plate.cs" />
     <Compile Include="model\warehouse.cs" />
+    <Compile Include="model\treenote.cs" />
     <Compile Include="xuxstatic\InitTool.cs" />
     <Compile Include="public\AdminManager.cs">
       <SubType>Form</SubType>
@@ -150,6 +151,7 @@
     <Content Include="mysqlcommad\sqlcommand.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="control\" />
     <Folder Include="ico\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

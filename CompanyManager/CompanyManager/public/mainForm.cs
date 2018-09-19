@@ -21,6 +21,12 @@ namespace CompanyManager
             
         }
 
+        private void init()
+        {
+            TreeNode root = new TreeNode("root");
+
+            treeView1.Nodes.Add(root);
+        }
 
         protected override void OnClosing(CancelEventArgs e)
         {
