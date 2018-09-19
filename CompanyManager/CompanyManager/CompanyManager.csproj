@@ -74,6 +74,7 @@
     <Compile Include="model\cell.cs" />
     <Compile Include="model\celluser.cs" />
     <Compile Include="model\contract.cs" />
+    <Compile Include="model\maintree.cs" />
     <Compile Include="model\plate.cs" />
     <Compile Include="model\warehouse.cs" />
     <Compile Include="model\treenote.cs" />

@@ -18,14 +18,16 @@ namespace CompanyManager
         {
             InitializeComponent();
 
-            
+            init();
         }
 
         private void init()
         {
-            TreeNode root = new TreeNode("root");
 
-            treeView1.Nodes.Add(root);
+            maintree mt = new maintree();
+            treeView1.Nodes.Add(mt.MainTreeNode);
+
+            treeView1.NodeMouseClick += new TreeNodeMouseClickEventHandler(mt.treeView1_MouseClick);
         }
 
         protected override void OnClosing(CancelEventArgs e)
