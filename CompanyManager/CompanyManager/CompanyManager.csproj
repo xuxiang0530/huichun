@@ -78,6 +78,24 @@
     <Compile Include="model\plate.cs" />
     <Compile Include="model\warehouse.cs" />
     <Compile Include="model\treenote.cs" />
+    <Compile Include="view\FileUpload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FileUpload.Designer.cs">
+      <DependentUpon>FileUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\getCell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\getCell.Designer.cs">
+      <DependentUpon>getCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\SetUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\SetUser.Designer.cs">
+      <DependentUpon>SetUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="xuxstatic\InitTool.cs" />
     <Compile Include="public\AdminManager.cs">
       <SubType>Form</SubType>
@@ -132,6 +150,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="public\PasswordUpload.resx">
       <DependentUpon>PasswordUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FileUpload.resx">
+      <DependentUpon>FileUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\getCell.resx">
+      <DependentUpon>getCell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\SetUser.resx">
+      <DependentUpon>SetUser.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
