@@ -307,6 +307,7 @@ namespace CompanyManager.DataManager
             //string sql = "select * from user where username='"+username+"' and password='"+password+"'"; //我们自己按照查询条件去组拼
             string sql = "select * from user where username=@para1 and password=@para2";//在sql语句中定义parameter，然后再给parameter赋值
             MySqlCommand cmd = new MySqlCommand(sql, conn);
+            
             cmd.Parameters.AddWithValue("para1", username);
             cmd.Parameters.AddWithValue("para2", password);
 
