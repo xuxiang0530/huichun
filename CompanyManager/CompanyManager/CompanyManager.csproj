@@ -74,10 +74,18 @@
     <Compile Include="model\cell.cs" />
     <Compile Include="model\celluser.cs" />
     <Compile Include="model\contract.cs" />
+    <Compile Include="model\Hfile.cs" />
     <Compile Include="model\maintree.cs" />
     <Compile Include="model\plate.cs" />
     <Compile Include="model\warehouse.cs" />
     <Compile Include="model\treenote.cs" />
+    <Compile Include="model\workjob.cs" />
+    <Compile Include="view\FileView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FileView.Designer.cs">
+      <DependentUpon>FileView.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\FileUpload.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\FileUpload.resx">
       <DependentUpon>FileUpload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FileView.resx">
+      <DependentUpon>FileView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\getCell.resx">
       <DependentUpon>getCell.cs</DependentUpon>

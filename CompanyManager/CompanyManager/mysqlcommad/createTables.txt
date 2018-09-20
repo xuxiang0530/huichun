@@ -115,21 +115,31 @@ PRIMARY KEY(contractid)
 
 
 
-CREATE TABLE T_contractfile
+drop table T_cellfile;
+CREATE TABLE T_cellfile
 (
-contractid int,
-fileid int,
-filetypeid int
+cellid int,
+fileid int
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+drop table T_contractfile;
+CREATE TABLE T_contractfile
+(
+contractid int,
+fileid int
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+drop table T_file;
 CREATE TABLE T_file
 (
 fileid INT NOT NULL AUTO_INCREMENT,
+filetypeid int,
 filename varchar(150),
 filefullname varchar(250),
 uploaddate datetime,
-uploaduserid varchar(50),
+uploaduserid int,
 disableflag int,
 filedata MEDIUMBLOB,
 note varchar(550),

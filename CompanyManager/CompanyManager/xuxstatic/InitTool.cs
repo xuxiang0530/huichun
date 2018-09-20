@@ -19,6 +19,13 @@ namespace CompanyManager
             return dv;
         }
 
+        public static Button Button(this System.Windows.Forms.Button btn)
+        {
+            btn.Width = 80;
+            btn.Height = 30;
+
+            return btn;
+        }
         public static ComboBox ComboBoxInit(this ComboBox cb, System.Data.DataTable dt, string value, string display)
         {
             cb.DataSource = dt;

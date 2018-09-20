@@ -139,12 +139,18 @@ PRIMARY KEY(contractid)
 
 
 
+--T_cellfile(细胞文件对应关系表)
+CREATE TABLE T_cellfile
+(
+cellid int,
+fileid int,
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --T_contractfile(合同文件对应关系表)
 CREATE TABLE T_contractfile
 (
 contractid int,
 fileid int,
-filetypeid int
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -152,6 +158,7 @@ filetypeid int
 CREATE TABLE T_file
 (
 fileid INT NOT NULL AUTO_INCREMENT,
+filetypeid int,
 filename varchar(150),
 filefullname varchar(250),
 uploaddate datetime,
