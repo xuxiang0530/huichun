@@ -209,6 +209,30 @@ namespace CompanyManager.DataManager
             return dt;
         }
 
+        protected int ExecuteNonQuery(string sqlStr,MySqlParameter[] para)
+        {
+            int result = -1;
+            //string sql = "insert into user(username,password,registerdate) values('啊宽','123','" + DateTime.Now + "')";
+            //string sql = "delete from user where userid='9'";
+            //string sql = "update user set username='啊哈',password='123' where userid='8'";
+            conn = new MySqlConnection(ConnetStr);
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+                cmd.Parameters.AddRange(para);
+                result = cmd.ExecuteNonQuery();//3.执行插入、删除、更改语句。执行成功返回受影响的数据的行数，返回1可做true判断。执行失败不返回任何数据，报错，下面代码都不执行
+            }
+            catch(Exception ex)
+            {
+                result = -1;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return result;
+        }
         protected int ExecuteNonQuery(string sqlStr,string[] para)
         {
             int result = -1;

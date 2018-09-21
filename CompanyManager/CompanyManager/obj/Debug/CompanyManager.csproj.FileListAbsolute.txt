@@ -70,3 +70,8 @@ D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\obj\Debug\Compa
 D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.view.getCell.resources
 D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.view.SetUser.resources
 D:\zhuXueJing\huichunManagerSystem\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.FileView.resources
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\bin\Debug\Microsoft.Office.Interop.PowerPoint.dll
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\bin\Debug\Microsoft.Office.Interop.Word.dll
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\bin\Debug\stdole.dll
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\bin\Debug\Microsoft.Office.Interop.Excel.xml
