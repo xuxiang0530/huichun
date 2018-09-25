@@ -31,6 +31,23 @@ namespace CompanyManager.model
 
         }
 
+        public bool Save()
+        {
+            bool f = false;
+            if(Userid == -1 && Username.Equals(""))
+            {
+                return f;
+            }
+
+
+            return f;
+        }
+
+        //private bool insertUser()
+        //{
+
+        //}
+
         public employee(string email,string pwd)
         {
             //test();

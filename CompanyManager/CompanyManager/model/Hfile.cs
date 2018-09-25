@@ -18,7 +18,7 @@ namespace CompanyManager.model
     class Hfile : MySqlConn
     {
         #region properity
-        private int _fileid;
+        private int _fileid;        //不等于-1时,有文件
         private int _filetypeid;
         private string _fileName;
         private string _fileFullName;
@@ -205,20 +205,9 @@ namespace CompanyManager.model
                 UpLoadDate = dt.Rows[0].ItemArray[dt.Columns.IndexOf("uploaddate")].ToString();
                 Filetypeid = Convert.ToInt32(dt.Rows[0].ItemArray[dt.Columns.IndexOf("uploaduserid")]);
                 DisableFlag = Convert.ToInt32(dt.Rows[0].ItemArray[dt.Columns.IndexOf("disableflag")]) == 1?true:false;
-                FileName = dt.Rows[0].ItemArray[dt.Columns.IndexOf("filedata")].ToString();
-                FileName = dt.Rows[0].ItemArray[dt.Columns.IndexOf("note")].ToString();
-                //Filetypeid = dt.Rows[0].ItemArray[dt.Columns.IndexOf("filetypeid")];
-                //Filetypeid = dt.Rows[0].ItemArray[dt.Columns.IndexOf("filetypeid")];
-                //Filetypeid = dt.Rows[0].ItemArray[dt.Columns.IndexOf("filetypeid")];
-                //Filetypeid = dt.Rows[0].ItemArray[dt.Columns.IndexOf("filetypeid")];
-                //Filetypeid = dt.Rows[0].ItemArray[dt.Columns.IndexOf("filetypeid")];
-                //Filetypeid = dt.Rows[0].ItemArray[dt.Columns.IndexOf("filetypeid")];
-                //Filetypeid = dt.Rows[0].ItemArray[dt.Columns.IndexOf("filetypeid")];
-                //Filetypeid = dt.Rows[0].ItemArray[dt.Columns.IndexOf("filetypeid")];
-                //Filetypeid = dt.Rows[0].ItemArray[dt.Columns.IndexOf("filetypeid")];
-                //Filetypeid = dt.Rows[0].ItemArray[dt.Columns.IndexOf("filetypeid")];
-                //Filetypeid = dt.Rows[0].ItemArray[dt.Columns.IndexOf("filetypeid")];
-                //Filetypeid = dt.Rows[0].ItemArray[dt.Columns.IndexOf("filetypeid")];
+                FileData = (byte[])dt.Rows[0].ItemArray[dt.Columns.IndexOf("filedata")];
+                Note = dt.Rows[0].ItemArray[dt.Columns.IndexOf("note")].ToString();
+                
             }
             else
             {

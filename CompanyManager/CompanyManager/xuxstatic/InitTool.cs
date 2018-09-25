@@ -15,6 +15,7 @@ namespace CompanyManager
             dv.AllowUserToResizeRows = false;
             dv.ReadOnly = true;
             dv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             return dv;
         }
