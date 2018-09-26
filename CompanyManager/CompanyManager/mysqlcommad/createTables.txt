@@ -1,4 +1,6 @@
-﻿CREATE TABLE T_employeeInfo
+﻿drop table T_employeeInfo;
+
+CREATE TABLE T_employeeInfo
 (
 userid INT NOT NULL AUTO_INCREMENT,
 username varchar(50),
@@ -11,6 +13,7 @@ idcardno varchar(30),
 sex int,
 employeeno int,
 joindate date,
+outdate date,
 onjob int,
 email varchar(100),
 pwd varchar(200),
