@@ -29,139 +29,6 @@ namespace CompanyManager.model
             Username = "";
         }
 
-        public bool Save()
-        {
-            bool f = false;
-            if(Userid == -1 && Username.Equals(""))
-            {
-                return f;
-            }
-            else if (Userid == -1)
-            {
-                f = insertUser();
-            }
-            else
-            {
-                f = updateUser();
-            }
-
-
-            return f;
-        }
-
-        private bool updateUser()
-        {
-            bool f = false;
-            string sqlstr = @"UPDATE T_employeeInfo SET 
-                username = ?username
-                ,englishname = ?englishname
-                ,usertypeid = ?usertypeid
-                ,userpowerid = ?userpowerid
-                ,birthday = ?birthday
-                ,cardtype = ?cardtype
-                ,idcardno = ?idcardno
-                ,sex = ?sex
-                ,employeeno = ?employeeno
-                ,joindate = ?joindate
-                ,outdate = ?outdate
-                ,onjob = ?onjob
-                ,email = ?email
-                ,pwd = ?pwd
-                WHERE userid = ?userid";
-            MySqlParameter[] para = new MySqlParameter[15];
-
-            //para[0] = new MySqlParameter("?userid",MySqlDbType.int
-            para[0] = new MySqlParameter("?username", MySqlDbType.VarChar, 50);
-            para[1] = new MySqlParameter("?englishname", MySqlDbType.VarChar, 50);
-            para[2] = new MySqlParameter("?usertypeid", MySqlDbType.Int16);
-            para[3] = new MySqlParameter("?userpowerid", MySqlDbType.Int16);
-            para[4] = new MySqlParameter("?birthday", MySqlDbType.Date);
-            para[5] = new MySqlParameter("?cardtype", MySqlDbType.Int16);
-            para[6] = new MySqlParameter("?idcardno", MySqlDbType.VarChar, 30);
-            para[7] = new MySqlParameter("?sex", MySqlDbType.Int16);
-            para[8] = new MySqlParameter("?employeeno", MySqlDbType.Int16);
-            para[9] = new MySqlParameter("?joindate", MySqlDbType.Date);
-            para[10] = new MySqlParameter("?outdate", MySqlDbType.Date);
-            para[11] = new MySqlParameter("?onjob", MySqlDbType.Int16);
-            para[12] = new MySqlParameter("?email", MySqlDbType.VarChar, 100);
-            para[13] = new MySqlParameter("?pwd", MySqlDbType.VarChar, 200);
-            para[14] = new MySqlParameter("?userid", MySqlDbType.Int16);
-
-            para[0].Value = Username;
-            para[1].Value = Englishname;
-            para[2].Value = Usertypeid;
-            para[3].Value = Userpowerid;
-            para[4].Value = Birthday.ToShortDateString();
-            para[5].Value = Cardtype;
-            para[6].Value = Idcardno;
-            para[7].Value = Sex;
-            para[8].Value = Employeeno;
-            para[9].Value = Joindate.ToShortDateString();
-            para[10].Value = Onjob;
-            para[11].Value = Email;
-            para[12].Value = Pwd;
-            para[13].Value = Userid;
-
-            if (ExecuteNonQuery(sqlstr, para) > 0)
-            {
-                f = true;
-            }
-            else
-            {
-                f = false;
-            }
-
-            return f;
-        }
-
-        private bool insertUser()
-        {
-            bool f = false;
-            string sqlstr = "INSERT INTO T_employeeInfo (username, englishname, usertypeid, userpowerid, birthday, cardtype, idcardno, sex, employeeno, joindate, onjob, email, pwd, outdate) values(?username,?englishname,?usertypeid,?userpowerid,?birthday,?cardtype,?idcardno,?sex,?employeeno,?joindate,?onjob,?email,?pwd,?outdate)";
-            MySqlParameter[] para = new MySqlParameter[14];
-
-            //para[0] = new MySqlParameter("?userid",MySqlDbType.int
-            para[0] = new MySqlParameter("?username", MySqlDbType.VarChar, 50);
-            para[1] = new MySqlParameter("?englishname", MySqlDbType.VarChar, 50);
-            para[2] = new MySqlParameter("?usertypeid", MySqlDbType.Int16);
-            para[3] = new MySqlParameter("?userpowerid", MySqlDbType.Int16);
-            para[4] = new MySqlParameter("?birthday", MySqlDbType.Date);
-            para[5] = new MySqlParameter("?cardtype", MySqlDbType.Int16);
-            para[6] = new MySqlParameter("?idcardno", MySqlDbType.VarChar, 30);
-            para[7] = new MySqlParameter("?sex", MySqlDbType.Int16);
-            para[8] = new MySqlParameter("?employeeno", MySqlDbType.Int16);
-            para[9] = new MySqlParameter("?joindate", MySqlDbType.Date);
-            para[10] = new MySqlParameter("?onjob", MySqlDbType.Int16);
-            para[11] = new MySqlParameter("?email", MySqlDbType.VarChar, 100);
-            para[12] = new MySqlParameter("?pwd", MySqlDbType.VarChar, 200);
-            para[13] = new MySqlParameter("?outdate", MySqlDbType.Date);
-
-            para[0].Value = Username;
-            para[1].Value = Englishname;
-            para[2].Value = Usertypeid;
-            para[3].Value = Userpowerid;
-            para[4].Value = Birthday.ToShortDateString();
-            para[5].Value = Cardtype;
-            para[6].Value = Idcardno;
-            para[7].Value = Sex;
-            para[8].Value = Employeeno;
-            para[9].Value = Joindate.ToShortDateString();
-            para[10].Value = Onjob;
-            para[11].Value = Email;
-            para[12].Value = Pwd;
-
-            if (ExecuteNonQuery(sqlstr, para) > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-            return f;
-        }
-
         public employee(string email,string pwd)
         {
             //test();
@@ -433,5 +300,142 @@ namespace CompanyManager.model
 
             return ExecuteNonQuery("update T_employeeInfo set pwd = @para1", new string[] { Pwd });
         }
+
+        #region funcation
+
+        public bool Save()
+        {
+            bool f = false;
+            if (Userid == -1 && Username.Equals(""))
+            {
+                return f;
+            }
+            else if (Userid == -1)
+            {
+                f = insertUser();
+            }
+            else
+            {
+                f = updateUser();
+            }
+
+
+            return f;
+        }
+
+        private bool updateUser()
+        {
+            bool f = false;
+            string sqlstr = @"UPDATE T_employeeInfo SET 
+                username = ?username
+                ,englishname = ?englishname
+                ,usertypeid = ?usertypeid
+                ,userpowerid = ?userpowerid
+                ,birthday = ?birthday
+                ,cardtype = ?cardtype
+                ,idcardno = ?idcardno
+                ,sex = ?sex
+                ,employeeno = ?employeeno
+                ,joindate = ?joindate
+                ,outdate = ?outdate
+                ,onjob = ?onjob
+                ,email = ?email
+                ,pwd = ?pwd
+                WHERE userid = ?userid";
+            MySqlParameter[] para = new MySqlParameter[15];
+
+            //para[0] = new MySqlParameter("?userid",MySqlDbType.int
+            para[0] = new MySqlParameter("?username", MySqlDbType.VarChar, 50);
+            para[1] = new MySqlParameter("?englishname", MySqlDbType.VarChar, 50);
+            para[2] = new MySqlParameter("?usertypeid", MySqlDbType.Int16);
+            para[3] = new MySqlParameter("?userpowerid", MySqlDbType.Int16);
+            para[4] = new MySqlParameter("?birthday", MySqlDbType.Date);
+            para[5] = new MySqlParameter("?cardtype", MySqlDbType.Int16);
+            para[6] = new MySqlParameter("?idcardno", MySqlDbType.VarChar, 30);
+            para[7] = new MySqlParameter("?sex", MySqlDbType.Int16);
+            para[8] = new MySqlParameter("?employeeno", MySqlDbType.Int16);
+            para[9] = new MySqlParameter("?joindate", MySqlDbType.Date);
+            para[10] = new MySqlParameter("?outdate", MySqlDbType.Date);
+            para[11] = new MySqlParameter("?onjob", MySqlDbType.Int16);
+            para[12] = new MySqlParameter("?email", MySqlDbType.VarChar, 100);
+            para[13] = new MySqlParameter("?pwd", MySqlDbType.VarChar, 200);
+            para[14] = new MySqlParameter("?userid", MySqlDbType.Int16);
+
+            para[0].Value = Username;
+            para[1].Value = Englishname;
+            para[2].Value = Usertypeid;
+            para[3].Value = Userpowerid;
+            para[4].Value = Birthday.ToShortDateString();
+            para[5].Value = Cardtype;
+            para[6].Value = Idcardno;
+            para[7].Value = Sex;
+            para[8].Value = Employeeno;
+            para[9].Value = Joindate.ToShortDateString();
+            para[10].Value = Onjob;
+            para[11].Value = Email;
+            para[12].Value = Pwd;
+            para[13].Value = Userid;
+
+            if (ExecuteNonQuery(sqlstr, para) > 0)
+            {
+                f = true;
+            }
+            else
+            {
+                f = false;
+            }
+
+            return f;
+        }
+
+        private bool insertUser()
+        {
+            bool f = false;
+            string sqlstr = "INSERT INTO T_employeeInfo (username, englishname, usertypeid, userpowerid, birthday, cardtype, idcardno, sex, employeeno, joindate, onjob, email, pwd, outdate) values(?username,?englishname,?usertypeid,?userpowerid,?birthday,?cardtype,?idcardno,?sex,?employeeno,?joindate,?onjob,?email,?pwd,?outdate)";
+            MySqlParameter[] para = new MySqlParameter[14];
+
+            //para[0] = new MySqlParameter("?userid",MySqlDbType.int
+            para[0] = new MySqlParameter("?username", MySqlDbType.VarChar, 50);
+            para[1] = new MySqlParameter("?englishname", MySqlDbType.VarChar, 50);
+            para[2] = new MySqlParameter("?usertypeid", MySqlDbType.Int16);
+            para[3] = new MySqlParameter("?userpowerid", MySqlDbType.Int16);
+            para[4] = new MySqlParameter("?birthday", MySqlDbType.Date);
+            para[5] = new MySqlParameter("?cardtype", MySqlDbType.Int16);
+            para[6] = new MySqlParameter("?idcardno", MySqlDbType.VarChar, 30);
+            para[7] = new MySqlParameter("?sex", MySqlDbType.Int16);
+            para[8] = new MySqlParameter("?employeeno", MySqlDbType.Int16);
+            para[9] = new MySqlParameter("?joindate", MySqlDbType.Date);
+            para[10] = new MySqlParameter("?onjob", MySqlDbType.Int16);
+            para[11] = new MySqlParameter("?email", MySqlDbType.VarChar, 100);
+            para[12] = new MySqlParameter("?pwd", MySqlDbType.VarChar, 200);
+            para[13] = new MySqlParameter("?outdate", MySqlDbType.Date);
+
+            para[0].Value = Username;
+            para[1].Value = Englishname;
+            para[2].Value = Usertypeid;
+            para[3].Value = Userpowerid;
+            para[4].Value = Birthday.ToShortDateString();
+            para[5].Value = Cardtype;
+            para[6].Value = Idcardno;
+            para[7].Value = Sex;
+            para[8].Value = Employeeno;
+            para[9].Value = Joindate.ToShortDateString();
+            para[10].Value = Onjob;
+            para[11].Value = Email;
+            para[12].Value = Pwd;
+
+            if (ExecuteNonQuery(sqlstr, para) > 0)
+            {
+                f = true;
+            }
+            else
+            {
+                f = false;
+            }
+
+            return f;
+        }
+
+        #endregion
     }
 }

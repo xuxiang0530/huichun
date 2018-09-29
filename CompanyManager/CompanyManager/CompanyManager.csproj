@@ -94,6 +94,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="public\EmployeeManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="public\EmployeeManager.Designer.cs">
+      <DependentUpon>EmployeeManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="model\cell.cs" />
     <Compile Include="model\celluser.cs" />
     <Compile Include="model\contract.cs" />
@@ -160,6 +166,9 @@
     <Compile Include="xuxstatic\TextBoxTool.cs" />
     <Compile Include="xuxstatic\StringBuff.cs" />
     <Compile Include="xuxstatic\xuxstatic.cs" />
+    <EmbeddedResource Include="public\EmployeeManager.resx">
+      <DependentUpon>EmployeeManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

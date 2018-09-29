@@ -357,42 +357,6 @@ namespace CompanyManager
             employee saveEy = new employee();
         }
 
-        private void loadEmployee(employee ey)
-        {
-            label9.Text = string.Format("Employee NO:{0}", ey.Userid);
-            textBox7.Text = ey.Username;
-            textBox8.Text = ey.Englishname;
-
-            comboBox5.SelectedValue = ey.Cardtype;
-            textBox10.Text = ey.Idcardno;
-
-            dateTimePicker1.Value = ey.Birthday;
-            if(ey.Sex == 1)
-            {
-                checkBox2.Checked = true;
-            }
-            else if(ey.Sex == 2)
-            {
-                checkBox1.Checked = true;
-            }
-            else
-            {
-                checkBox2.Checked = false;
-                checkBox1.Checked = false;
-            }
-
-            comboBox3.SelectedValue = ey.Usertypeid;
-            comboBox4.SelectedValue = ey.Userpowerid;
-
-            dateTimePicker2.Value = ey.Joindate;
-            checkBox3.Checked = ey.Onjob;
-            dateTimePicker3.Value = ey.Outdate;
-
-            textBox9.Text = ey.Email;
-            textBox11.SetWatermark("只有新增人员时,此处可设置初始密码");
-
-        }
-
         #endregion
     }
 }
