@@ -8,25 +8,85 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CompanyManager.model;
-
+using CompanyManager.DataManager;
 namespace CompanyManager
 {
     public partial class EmployeeManager : Form
     {
+        employee ey;
         public EmployeeManager()
         {
             InitializeComponent();
+            init();
         }
+
+        private void init()
+        {
+            dataGridView9.DataGridViewInit();
+            dataGridView9.MouseDoubleClick += new MouseEventHandler(dataGridView9_DoubleCellClick);
+            ey = new employee();
+            sxEmployeeDataGridView();
+
+            string strSql = "select id,typename from TD_type";
+            DataTable dt = MySqlConn.GetDataSet(strSql).Tables[0];
+            comboBox3.ComboBoxInit(dt, "id", "typename");
+
+            strSql = "select id,powername from TD_power";
+            dt = MySqlConn.GetDataSet(strSql).Tables[0];
+            comboBox4.ComboBoxInit(dt, "id", "powername");
+
+
+            comboBox5.ComboBoxInit(xuxstatic.xuxSeecion.CardTypeLIst, "id", "type");
+
+            tabControl1.TabPages.Remove(tabPage5);
+        }
+
+        private void sxEmployeeDataGridView()
+        {
+            dataGridView9.DataSource = null;
+            dataGridView9.DataSource = ey.SearchEmail(textBox12.Text.Trim());
+
+        }
+
 
         private void button10_Click(object sender, EventArgs e)
         {
+            setEmployee();
+            if(ey.Save())
+            {
+                ey.sxEmployeeDataTable();
+                sxEmployeeDataGridView();
+                tabControl1.SelectTab(tabPage6);
+                MessageBox.Show("保存成功!");
+            }
+            else
+            {
+                MessageBox.Show(xuxstatic.xuxSeecion.ERRMESSAGE);
+            }
+        }
 
+
+        private void dataGridView9_DoubleCellClick(object sender, MouseEventArgs e)
+        {
+            if (dataGridView9.CurrentRow != null)
+            {
+                int index = dataGridView9.CurrentRow.Index;
+
+                //DataGridViewCellCollection cl = dataGridView9.Rows[index].Cells;
+                ey.GetByUserId(dataGridView9.Rows[index].Cells[0].Value.ToString());
+                loadEmployee();
+                if (tabControl1.TabPages.IndexOf(tabPage5) == -1)
+                {
+                    tabControl1.TabPages.Add(tabPage5);
+                }
+                tabControl1.SelectTab(tabPage5);
+            }
         }
 
 
         #region 员工相关
 
-        private void setEmployee(employee ey)
+        private void setEmployee()
         {
             ey.Username = textBox7.Text.Trim();
             ey.Englishname = textBox8.Text.Trim();
@@ -49,9 +109,9 @@ namespace CompanyManager
             ey.Pwd = textBox11.Text.Trim().Md5();
         }
 
-        private void loadEmployee(employee ey)
+        private void loadEmployee()
         {
-            label9.Text = string.Format("Employee NO:{0}", ey.Userid);
+            label9.Text = string.Format("Employee NO:{0}", ey.Userid == -1 ? "新员工" : ey.Userid.ToString());
             textBox7.Text = ey.Username;
             textBox8.Text = ey.Englishname;
 
@@ -86,5 +146,18 @@ namespace CompanyManager
         }
 
         #endregion
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            sxEmployeeDataGridView();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ey = new employee();
+            loadEmployee();
+            tabControl1.TabPages.Add(tabPage5);
+            tabControl1.SelectTab(tabPage5);
+        }
     }
 }

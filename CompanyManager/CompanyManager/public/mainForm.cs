@@ -48,8 +48,18 @@ namespace CompanyManager
 
         private void 设置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+        }
+
+        private void 系统设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             AdminManager am = new AdminManager();
             am.ShowDialog();
+        }
+
+        private void 员工信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EmployeeManager em = new EmployeeManager();
+            em.ShowDialog();
         }
     }
 }

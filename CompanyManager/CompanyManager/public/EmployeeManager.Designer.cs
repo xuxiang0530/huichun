@@ -64,6 +64,7 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.dataGridView9 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -96,7 +97,7 @@
             this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPage5.Size = new System.Drawing.Size(1321, 670);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "员工新增";
+            this.tabPage5.Text = "员工信息";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // button10
@@ -406,6 +407,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.button1);
             this.tabPage6.Controls.Add(this.button9);
             this.tabPage6.Controls.Add(this.textBox12);
             this.tabPage6.Controls.Add(this.label19);
@@ -421,6 +423,7 @@
             // 
             // button9
             // 
+            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button9.Location = new System.Drawing.Point(491, 615);
             this.button9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button9.Name = "button9";
@@ -428,6 +431,7 @@
             this.button9.TabIndex = 11;
             this.button9.Text = "检索";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // textBox12
             // 
@@ -457,6 +461,18 @@
             this.dataGridView9.Name = "dataGridView9";
             this.dataGridView9.Size = new System.Drawing.Size(1303, 569);
             this.dataGridView9.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(1200, 616);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 27);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "新建员工";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // EmployeeManager
             // 
@@ -521,5 +537,6 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.DataGridView dataGridView9;
+        private System.Windows.Forms.Button button1;
     }
 }

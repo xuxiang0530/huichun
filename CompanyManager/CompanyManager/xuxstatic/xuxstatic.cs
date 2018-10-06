@@ -9,6 +9,7 @@ namespace CompanyManager.xuxstatic
         private static DataTable _cardTypeLIst;
         private static DataTable _sexList;
         public static employee LOGINUSER;
+        public static string ERRMESSAGE;
 
         public static DataTable CardTypeLIst
         {
@@ -42,9 +43,10 @@ namespace CompanyManager.xuxstatic
 
             CardTypeHash.Add(1, "身份证");
             CardTypeHash.Add(2, "护照");
+            CardTypeLIst = hashToDataTable(CardTypeHash);
 
             Hashtable SexHash = new Hashtable();
-
+            
             SexHash.Add(1, "男");
             SexHash.Add(2, "女");
 

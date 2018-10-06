@@ -253,3 +253,32 @@ cellid INT NOT NULL ,
 funcationid varchar(50),
 note varchar(300)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE VIEW V_Employee
+AS
+SELECT userid '员工ID',
+CASE cardtype
+WHEN 1 then '身份证' 
+WHEN 2 THEN '护照' 
+end '证件类型',
+idcardno '证件号码',
+username '姓名',
+englishname '英文名',
+C.typename '人员类型',
+B.powername '权限',
+birthday '生日',
+CASE sex 
+WHEN 1 THEN '男' 
+WHEN 2 THEN '女' 
+END '性别',
+userid '员工编号',
+joindate '入职日期',
+outdate '离职日期',
+CASE onjob WHEN 1 THEN '在职' WHEN 0 THEN '离职' END '是否在职',
+email '邮箱'
+FROM
+T_employeeInfo A,
+TD_power B,
+TD_type C
+WHERE A.usertypeid = C.id
+and A.userpowerid = B.id;

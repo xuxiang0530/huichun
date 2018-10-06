@@ -75,6 +75,7 @@ namespace CompanyManager
             if(ey.Userid != -1)
             {
                 xuxstatic.xuxSeecion.LOGINUSER = ey;
+                xuxSeecion xux = new xuxSeecion();
                 mainForm mf = new mainForm();
                 this.Hide();
                 if (mf.ShowDialog() == DialogResult.OK)

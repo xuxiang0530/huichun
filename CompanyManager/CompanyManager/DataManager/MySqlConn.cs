@@ -308,8 +308,9 @@ namespace CompanyManager.DataManager
                     //Console.WriteLine(reader.GetInt32("userid") + reader.GetString("username") + reader.GetString("password"));//"userid"是数据库对应的列名，推荐这种方式
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                DataAcc.writeTxt(ex.Message);
                 dt = null;
             }
             finally

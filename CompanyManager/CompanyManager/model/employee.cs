@@ -22,37 +22,48 @@ namespace CompanyManager.model
         private bool _onjob;
         private string _email;
         private string _pwd;
-        
+
+        private DataTable _employeeDataTable;
+        private DataTable _employeeVIew;
+
         public employee()
         {
             Userid = -1;
             Username = "";
+            Birthday = DateTime.Now.AddYears(-20);
+            Joindate = DateTime.Now;
+            Outdate = DateTime.Now.AddYears(99);
+            _employeeDataTable = ListDataTable();
         }
 
+        
         public employee(string email,string pwd)
         {
             //test();
-            string[] para = new string[] { email, pwd };
+            //string[] para = new string[] { email, pwd };
+            sxEmployeeDataTable();
 
-            DataTable dt = Select("select userid,username,englishname,usertypeid,userpowerid,birthday,cardtype,idcardno,sex,employeeno,joindate," 
-                + "onjob,email,outdate from T_employeeInfo where email = @para1 and pwd = @para2 and onjob = 1", para);
+            //DataTable dt = Select("select userid,username,englishname,usertypeid,userpowerid,birthday,cardtype,idcardno,sex,employeeno,joindate," 
+            //    + "onjob,email,outdate from T_employeeInfo where email = @para1 and pwd = @para2 and onjob = 1", para);
 
-            if (dt.Rows.Count == 1)
+            DataRow[] drc = EmployeeDataTable.Select(string.Format("email = '{0}' and pwd = '{1}' and onjob = 1",email,pwd));
+
+            if (drc.Length == 1)
             {
-                DataRow dr = dt.Rows[0];
-                Userid = Convert.ToInt16( dr.ItemArray[dt.Columns.IndexOf("userid")]);
-                Username = dr.ItemArray[dt.Columns.IndexOf("username")].ToString();
-                Englishname = dr.ItemArray[dt.Columns.IndexOf("englishname")].ToString();
-                Usertypeid = Convert.ToInt16(dr.ItemArray[dt.Columns.IndexOf("usertypeid")]);
-                Userpowerid = Convert.ToInt16(dr.ItemArray[dt.Columns.IndexOf("userpowerid")]);
-                Birthday = Convert.ToDateTime(dr.ItemArray[dt.Columns.IndexOf("birthday")]);
-                Cardtype = Convert.ToInt16(dr.ItemArray[dt.Columns.IndexOf("Cardtype")]);
-                Idcardno = dr.ItemArray[dt.Columns.IndexOf("idcardno")].ToString();
-                Sex = Convert.ToInt16(dr.ItemArray[dt.Columns.IndexOf("sex")]);
+                DataRow dr = drc[0];
+                Userid = Convert.ToInt16( dr.ItemArray[EmployeeDataTable.Columns.IndexOf("userid")]);
+                Username = dr.ItemArray[EmployeeDataTable.Columns.IndexOf("username")].ToString();
+                Englishname = dr.ItemArray[EmployeeDataTable.Columns.IndexOf("englishname")].ToString();
+                Usertypeid = Convert.ToInt16(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("usertypeid")]);
+                Userpowerid = Convert.ToInt16(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("userpowerid")]);
+                Birthday = Convert.ToDateTime(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("birthday")]);
+                Cardtype = Convert.ToInt16(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("Cardtype")]);
+                Idcardno = dr.ItemArray[EmployeeDataTable.Columns.IndexOf("idcardno")].ToString();
+                Sex = Convert.ToInt16(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("sex")]);
                 //Employeeno = Convert.ToInt16(dr.ItemArray[dt.Columns.IndexOf("employeeno")]);
-                Joindate = Convert.ToDateTime(dr.ItemArray[dt.Columns.IndexOf("joindate")]);
-                Outdate = Convert.ToDateTime(dr.ItemArray[dt.Columns.IndexOf("outdate")]);
-                Onjob = Convert.ToInt16(dr.ItemArray[dt.Columns.IndexOf("onjob")]) == 1 ?true:false;
+                Joindate = Convert.ToDateTime(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("joindate")]);
+                Outdate = Convert.ToDateTime(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("outdate")]);
+                Onjob = Convert.ToInt16(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("onjob")]) == 1 ?true:false;
                 Email = email ;
                 Pwd = pwd;
             }
@@ -292,16 +303,132 @@ namespace CompanyManager.model
                 _outdate = value;
             }
         }
+
+        public DataTable EmployeeDataTable
+        {
+            get
+            {
+                return _employeeDataTable;
+            }
+        }
+
+        public DataTable EmployeeVIew
+        {
+            get
+            {
+                return _employeeVIew;
+            }
+            
+        }
         #endregion
 
-
+        #region funcation
         public int SavePwd()
         {
 
             return ExecuteNonQuery("update T_employeeInfo set pwd = @para1", new string[] { Pwd });
         }
 
-        #region funcation
+        public void sxEmployeeDataTable()
+        {
+            _employeeDataTable = ListDataTable();
+            _employeeVIew = userView();
+        }
+
+        public DataTable SearchEmail(string email)
+        {
+            DataRow[] drs = EmployeeVIew.Select(string.Format("邮箱 like '%{0}%'", email));
+            DataTable dt = EmployeeVIew.Clone();
+
+            foreach(DataRow dr in drs)
+            {
+                dt.ImportRow(dr);
+            }
+            return dt;
+        }
+
+
+        public bool GetByUserId(string userId)
+        {
+            bool b = false;
+            //string[] para = new string[] { userId };
+
+            //DataTable dt = Select("select userid,username,englishname,usertypeid,userpowerid,birthday,cardtype,idcardno,sex,employeeno,joindate,"
+            //    + "onjob,email,outdate from T_employeeInfo where userid = @para1", para);
+
+            DataRow[] drs = EmployeeDataTable.Select(string.Format("userid = {0}", userId));
+
+            if (drs.Length == 1)
+            {
+                b = true;
+                DataRow dr = drs[0];
+                Userid = Convert.ToInt16(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("userid")]);
+                Username = dr.ItemArray[EmployeeDataTable.Columns.IndexOf("username")].ToString();
+                Englishname = dr.ItemArray[EmployeeDataTable.Columns.IndexOf("englishname")].ToString();
+                Usertypeid = Convert.ToInt16(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("usertypeid")]);
+                Userpowerid = Convert.ToInt16(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("userpowerid")]);
+                Birthday = Convert.ToDateTime(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("birthday")]);
+                Cardtype = Convert.ToInt16(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("Cardtype")]);
+                Idcardno = dr.ItemArray[EmployeeDataTable.Columns.IndexOf("idcardno")].ToString();
+                Sex = Convert.ToInt16(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("sex")]);
+                //Employeeno = Convert.ToInt16(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("employeeno")]);
+                Joindate = Convert.ToDateTime(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("joindate")]);
+                Outdate = Convert.ToDateTime(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("outdate")]);
+                Onjob = Convert.ToInt16(dr.ItemArray[EmployeeDataTable.Columns.IndexOf("onjob")]) == 1 ? true : false;
+                Email = dr.ItemArray[EmployeeDataTable.Columns.IndexOf("email")].ToString(); 
+            }
+
+
+            return b;
+        }
+        private DataTable userView()
+        {
+            DataTable dt;
+            string strsql = @"select * from V_Employee";
+            dt = Select(strsql);
+            return dt;
+        }
+        private  DataTable ListDataTable()
+        {
+            DataTable dt;
+//            string strsql = string.Format(@"SELECT userid,
+//idcardno ,
+//username,
+//englishname,
+//usertypeid ,
+//userpowerid ,
+//birthday ,
+//cardtype ,
+//sex ,
+//userid employeeno ,
+//joindate ,
+//outdate ,
+//onjob ,
+//email
+//from T_employeeInfo
+//where email like '%{0}%'"
+//, email
+//);
+            string strsql = @"SELECT userid,
+idcardno ,
+username,
+englishname,
+usertypeid ,
+userpowerid ,
+birthday ,
+cardtype ,
+sex ,
+userid employeeno ,
+joindate ,
+outdate ,
+onjob ,
+email,
+pwd
+from T_employeeInfo";
+            dt = Select(strsql);
+
+            return dt;
+        }
 
         public bool Save()
         {
@@ -312,7 +439,18 @@ namespace CompanyManager.model
             }
             else if (Userid == -1)
             {
-                f = insertUser();
+                if (Email != "" && EmployeeDataTable.Select(string.Format("email = '{0}' and onjob = 1", Email)).Length > 0)
+                {
+                    xuxstatic.xuxSeecion.ERRMESSAGE = "Email 重复";
+                }
+                else if(EmployeeDataTable.Select(string.Format("idcardno = '{0}' and onjob = 1", Idcardno)).Length > 0)
+                {
+                    xuxstatic.xuxSeecion.ERRMESSAGE = "证件号码重复";
+                }
+                else
+                {
+                    f = insertUser();
+                }
             }
             else
             {
@@ -340,9 +478,8 @@ namespace CompanyManager.model
                 ,outdate = ?outdate
                 ,onjob = ?onjob
                 ,email = ?email
-                ,pwd = ?pwd
                 WHERE userid = ?userid";
-            MySqlParameter[] para = new MySqlParameter[15];
+            MySqlParameter[] para = new MySqlParameter[14];
 
             //para[0] = new MySqlParameter("?userid",MySqlDbType.int
             para[0] = new MySqlParameter("?username", MySqlDbType.VarChar, 50);
@@ -358,8 +495,7 @@ namespace CompanyManager.model
             para[10] = new MySqlParameter("?outdate", MySqlDbType.Date);
             para[11] = new MySqlParameter("?onjob", MySqlDbType.Int16);
             para[12] = new MySqlParameter("?email", MySqlDbType.VarChar, 100);
-            para[13] = new MySqlParameter("?pwd", MySqlDbType.VarChar, 200);
-            para[14] = new MySqlParameter("?userid", MySqlDbType.Int16);
+            para[13] = new MySqlParameter("?userid", MySqlDbType.Int16);
 
             para[0].Value = Username;
             para[1].Value = Englishname;
@@ -371,9 +507,9 @@ namespace CompanyManager.model
             para[7].Value = Sex;
             para[8].Value = Employeeno;
             para[9].Value = Joindate.ToShortDateString();
-            para[10].Value = Onjob;
-            para[11].Value = Email;
-            para[12].Value = Pwd;
+            para[10].Value = Outdate.ToShortDateString();
+            para[11].Value = Onjob?1:0;
+            para[12].Value = Email;
             para[13].Value = Userid;
 
             if (ExecuteNonQuery(sqlstr, para) > 0)
@@ -384,7 +520,7 @@ namespace CompanyManager.model
             {
                 f = false;
             }
-
+            xuxstatic.xuxSeecion.ERRMESSAGE = "修改人员信息出错";
             return f;
         }
 
@@ -423,6 +559,7 @@ namespace CompanyManager.model
             para[10].Value = Onjob;
             para[11].Value = Email;
             para[12].Value = Pwd;
+            para[13].Value = Outdate.ToShortDateString();
 
             if (ExecuteNonQuery(sqlstr, para) > 0)
             {
