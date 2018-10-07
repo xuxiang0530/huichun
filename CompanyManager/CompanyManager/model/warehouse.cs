@@ -8,5 +8,8 @@ namespace CompanyManager.model
 {
     class warehouse
     {
+        private int _id;
+        private string _name;
+        private string _note;
     }
 }

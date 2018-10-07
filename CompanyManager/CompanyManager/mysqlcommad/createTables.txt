@@ -282,3 +282,6 @@ TD_power B,
 TD_type C
 WHERE A.usertypeid = C.id
 and A.userpowerid = B.id;
+
+
+alter table T_warehouse add name varchar(50);

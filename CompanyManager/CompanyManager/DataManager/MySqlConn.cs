@@ -33,6 +33,7 @@ namespace CompanyManager.DataManager
             }
             catch (Exception ex)
             {
+                DataAcc.writeTxt(ex.Message);
                 result = -1;
             }
             finally
@@ -54,6 +55,7 @@ namespace CompanyManager.DataManager
             }
             catch (Exception ex)
             {
+                DataAcc.writeTxt(ex.Message);
                 result = -1;
             }
             finally
@@ -225,6 +227,7 @@ namespace CompanyManager.DataManager
             }
             catch(Exception ex)
             {
+                DataAcc.writeTxt(ex.Message);
                 result = -1;
             }
             finally
@@ -253,6 +256,7 @@ namespace CompanyManager.DataManager
             }
             catch(Exception ex)
             {
+                DataAcc.writeTxt(ex.Message);
                 result = -1;
             }
             finally

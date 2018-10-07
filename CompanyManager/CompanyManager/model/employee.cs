@@ -24,7 +24,7 @@ namespace CompanyManager.model
         private string _pwd;
 
         private DataTable _employeeDataTable;
-        private DataTable _employeeVIew;
+        private DataTable _employeeView;
 
         public employee()
         {
@@ -33,7 +33,7 @@ namespace CompanyManager.model
             Birthday = DateTime.Now.AddYears(-20);
             Joindate = DateTime.Now;
             Outdate = DateTime.Now.AddYears(99);
-            _employeeDataTable = ListDataTable();
+            sxEmployeeDataTable();
         }
 
         
@@ -312,11 +312,11 @@ namespace CompanyManager.model
             }
         }
 
-        public DataTable EmployeeVIew
+        public DataTable EmployeeView
         {
             get
             {
-                return _employeeVIew;
+                return _employeeView;
             }
             
         }
@@ -332,13 +332,13 @@ namespace CompanyManager.model
         public void sxEmployeeDataTable()
         {
             _employeeDataTable = ListDataTable();
-            _employeeVIew = userView();
+            _employeeView = userView();
         }
 
         public DataTable SearchEmail(string email)
         {
-            DataRow[] drs = EmployeeVIew.Select(string.Format("邮箱 like '%{0}%'", email));
-            DataTable dt = EmployeeVIew.Clone();
+            DataRow[] drs = EmployeeView.Select(string.Format("邮箱 like '%{0}%'", email));
+            DataTable dt = EmployeeView.Clone();
 
             foreach(DataRow dr in drs)
             {
@@ -441,11 +441,11 @@ from T_employeeInfo";
             {
                 if (Email != "" && EmployeeDataTable.Select(string.Format("email = '{0}' and onjob = 1", Email)).Length > 0)
                 {
-                    xuxstatic.xuxSeecion.ERRMESSAGE = "Email 重复";
+                    xuxSeecion.ERRMESSAGE = "Email 重复";
                 }
                 else if(EmployeeDataTable.Select(string.Format("idcardno = '{0}' and onjob = 1", Idcardno)).Length > 0)
                 {
-                    xuxstatic.xuxSeecion.ERRMESSAGE = "证件号码重复";
+                    xuxSeecion.ERRMESSAGE = "证件号码重复";
                 }
                 else
                 {
@@ -520,7 +520,7 @@ from T_employeeInfo";
             {
                 f = false;
             }
-            xuxstatic.xuxSeecion.ERRMESSAGE = "修改人员信息出错";
+            xuxSeecion.ERRMESSAGE = "修改人员信息出错";
             return f;
         }
 

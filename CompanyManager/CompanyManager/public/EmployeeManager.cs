@@ -36,7 +36,7 @@ namespace CompanyManager
             comboBox4.ComboBoxInit(dt, "id", "powername");
 
 
-            comboBox5.ComboBoxInit(xuxstatic.xuxSeecion.CardTypeLIst, "id", "type");
+            comboBox5.ComboBoxInit(xuxSeecion.CardTypeList, "id", "type");
 
             tabControl1.TabPages.Remove(tabPage5);
         }
@@ -61,7 +61,7 @@ namespace CompanyManager
             }
             else
             {
-                MessageBox.Show(xuxstatic.xuxSeecion.ERRMESSAGE);
+                MessageBox.Show(xuxSeecion.ERRMESSAGE);
             }
         }
 
@@ -96,7 +96,7 @@ namespace CompanyManager
 
             ey.Birthday = dateTimePicker1.Value;
 
-            ey.Sex = checkBox2.Checked ? 1 : 2;
+            ey.Sex = radioButton1.Checked ? 1 : 2;
 
             ey.Usertypeid = Convert.ToInt16(comboBox3.SelectedValue);
             ey.Userpowerid = Convert.ToInt16(comboBox4.SelectedValue);
@@ -121,16 +121,16 @@ namespace CompanyManager
             dateTimePicker1.Value = ey.Birthday;
             if (ey.Sex == 1)
             {
-                checkBox2.Checked = true;
+                radioButton1.Checked = true;
             }
             else if (ey.Sex == 2)
             {
-                checkBox1.Checked = true;
+                radioButton2.Checked = true;
             }
             else
             {
-                checkBox2.Checked = false;
-                checkBox1.Checked = false;
+                radioButton1.Checked = false;
+                radioButton2.Checked = false;
             }
 
             comboBox3.SelectedValue = ey.Usertypeid;
@@ -158,6 +158,11 @@ namespace CompanyManager
             loadEmployee();
             tabControl1.TabPages.Add(tabPage5);
             tabControl1.SelectTab(tabPage5);
+        }
+
+        private void textBox12_KeyDown(object sender, KeyEventArgs e)
+        {
+            button9_Click(null, null);
         }
     }
 }

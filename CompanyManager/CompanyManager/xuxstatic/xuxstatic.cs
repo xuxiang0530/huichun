@@ -2,25 +2,28 @@
 using System.Collections;
 using CompanyManager.model;
 
-namespace CompanyManager.xuxstatic
+namespace CompanyManager
 {
     class xuxSeecion
     {
-        private static DataTable _cardTypeLIst;
+        private static DataTable _cardTypeList;
         private static DataTable _sexList;
         public static employee LOGINUSER;
         public static string ERRMESSAGE;
 
-        public static DataTable CardTypeLIst
+        private static DataTable _wareHouseTable;
+        
+
+        public static DataTable CardTypeList
         {
             get
             {
-                return _cardTypeLIst;
+                return _cardTypeList;
             }
 
             set
             {
-                _cardTypeLIst = value;
+                _cardTypeList = value;
             }
         }
 
@@ -37,21 +40,35 @@ namespace CompanyManager.xuxstatic
             }
         }
 
+        public static DataTable WareHouseTable
+        {
+            get
+            {
+                return _wareHouseTable;
+            }
+
+            set
+            {
+                _wareHouseTable = value;
+            }
+        }
+
         public xuxSeecion()
         {
             Hashtable CardTypeHash = new Hashtable();
 
             CardTypeHash.Add(1, "身份证");
             CardTypeHash.Add(2, "护照");
-            CardTypeLIst = hashToDataTable(CardTypeHash);
+            CardTypeList = hashToDataTable(CardTypeHash);
 
             Hashtable SexHash = new Hashtable();
             
             SexHash.Add(1, "男");
             SexHash.Add(2, "女");
 
-            CardTypeLIst = hashToDataTable(CardTypeHash);
+            CardTypeList = hashToDataTable(CardTypeHash);
             SexList = hashToDataTable(SexHash);
+            sxWareHouse();
         }
 
         private DataTable hashToDataTable(Hashtable htable)
@@ -67,6 +84,11 @@ namespace CompanyManager.xuxstatic
                 dt.Rows.Add(dr);
             }
             return dt;
+        }
+
+        public static void sxWareHouse()
+        {
+            WareHouseTable = CompanyManager.DataManager.MySqlConn.GetDataSet("select id,type,note,location from T_warehouse").Tables[0];
         }
     }
 }

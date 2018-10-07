@@ -34,10 +34,10 @@ namespace CompanyManager
             oldpassword = textBox1.Text.Trim();
             newpassword1 = textBox2.Text.Trim();
             newpassword2 = textBox3.Text.Trim();
-            if (newpassword1.Equals(newpassword2) && oldpassword.Md5().Equals(xuxstatic.xuxSeecion.LOGINUSER.Pwd))
+            if (newpassword1.Equals(newpassword2) && oldpassword.Md5().Equals(xuxSeecion.LOGINUSER.Pwd))
             {
-                xuxstatic.xuxSeecion.LOGINUSER.Pwd = newpassword1.Md5();
-                if (xuxstatic.xuxSeecion.LOGINUSER.SavePwd() > 0)
+                xuxSeecion.LOGINUSER.Pwd = newpassword1.Md5();
+                if (xuxSeecion.LOGINUSER.SavePwd() > 0)
                 {
                     MessageBox.Show("密码修改成功");
                     textBox1.Text = "";
@@ -71,7 +71,7 @@ namespace CompanyManager
         {
             oldpassword = textBox1.Text.Trim();
 
-            if(oldpassword.Md5().Equals(xuxstatic.xuxSeecion.LOGINUSER.Pwd))
+            if(oldpassword.Md5().Equals(xuxSeecion.LOGINUSER.Pwd))
             {
                 textBox2.Enabled = true;
                 textBox3.Enabled = true;
@@ -88,7 +88,7 @@ namespace CompanyManager
         private void textBox2_Leave(object sender, EventArgs e)
         {
             newpassword1 = textBox2.Text.Trim();
-            if (!oldpassword.Md5().Equals(xuxstatic.xuxSeecion.LOGINUSER.Pwd))
+            if (!oldpassword.Md5().Equals(xuxSeecion.LOGINUSER.Pwd))
             {
                 //MessageBox.Show("旧密码不正确");
                 textBox2.Enabled = true;

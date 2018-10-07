@@ -175,7 +175,7 @@ namespace CompanyManager.model
             para[1].Value = FileName;
             para[2].Value = FileFullName;
             para[3].Value = UpLoadDate;
-            para[4].Value = xuxstatic.xuxSeecion.LOGINUSER.Userid;
+            para[4].Value = xuxSeecion.LOGINUSER.Userid;
             para[5].Value = DisableFlag ? 1 : 0;
             para[6].Value = FileData;
             para[7].Value = Note;
@@ -266,6 +266,7 @@ namespace CompanyManager.model
             }
             catch (Exception ex)
             {
+                DataAcc.writeTxt(ex.Message);
                 return false;
             }
         }

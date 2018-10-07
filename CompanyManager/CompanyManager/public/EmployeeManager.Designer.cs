@@ -48,8 +48,6 @@
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -60,11 +58,13 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.dataGridView9 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -277,8 +277,8 @@
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.checkBox2);
-            this.groupBox9.Controls.Add(this.checkBox1);
+            this.groupBox9.Controls.Add(this.radioButton2);
+            this.groupBox9.Controls.Add(this.radioButton1);
             this.groupBox9.Controls.Add(this.textBox10);
             this.groupBox9.Controls.Add(this.comboBox5);
             this.groupBox9.Controls.Add(this.dateTimePicker1);
@@ -295,28 +295,6 @@
             this.groupBox9.TabIndex = 13;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "基本信息";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(593, 88);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(44, 19);
-            this.checkBox2.TabIndex = 16;
-            this.checkBox2.Text = "男";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(660, 88);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(44, 19);
-            this.checkBox1.TabIndex = 15;
-            this.checkBox1.Text = "女";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // textBox10
             // 
@@ -421,6 +399,18 @@
             this.tabPage6.Text = "员工列表";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(1200, 616);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 27);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "新建员工";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // button9
             // 
             this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -441,6 +431,7 @@
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(261, 25);
             this.textBox12.TabIndex = 9;
+            this.textBox12.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox12_KeyDown);
             // 
             // label19
             // 
@@ -462,17 +453,27 @@
             this.dataGridView9.Size = new System.Drawing.Size(1303, 569);
             this.dataGridView9.TabIndex = 0;
             // 
-            // button1
+            // radioButton1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(1200, 616);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 27);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "新建员工";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(593, 93);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(43, 19);
+            this.radioButton1.TabIndex = 15;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "男";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(642, 93);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(43, 19);
+            this.radioButton2.TabIndex = 16;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "女";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // EmployeeManager
             // 
@@ -521,8 +522,6 @@
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -538,5 +537,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.DataGridView dataGridView9;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }

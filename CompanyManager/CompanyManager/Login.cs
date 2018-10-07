@@ -8,7 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using CompanyManager.DataManager;
 using CompanyManager.model;
-using CompanyManager.xuxstatic;
 
 
 namespace CompanyManager
@@ -74,8 +73,9 @@ namespace CompanyManager
             employee ey = new employee(Email, Pwd.Md5());
             if(ey.Userid != -1)
             {
-                xuxstatic.xuxSeecion.LOGINUSER = ey;
+                xuxSeecion.LOGINUSER = ey;
                 xuxSeecion xux = new xuxSeecion();
+                xuxSeecion.sxWareHouse();
                 mainForm mf = new mainForm();
                 this.Hide();
                 if (mf.ShowDialog() == DialogResult.OK)

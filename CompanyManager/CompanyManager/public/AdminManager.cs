@@ -14,10 +14,11 @@ namespace CompanyManager
 {
     public partial class AdminManager : Form
     {
-        DataTable userTypeTbl;
-        DataTable userPowerTbl;
-        DataTable fileTypeTbl;
+        //DataTable userTypeTbl;
+        //DataTable userPowerTbl;
+        //DataTable fileTypeTbl;
         int logisticsTypeId = -1;
+        int wareHouseId = -1;
 
         public AdminManager()
         {
@@ -220,6 +221,126 @@ namespace CompanyManager
         #endregion
 
 
+        #region 容器管理
+        private void button10_Click_1(object sender, EventArgs e)
+        {
+            string warehouseName = textBox7.Text.Trim();
+            string warehouseType = textBox10.Text.Trim();
+            string warehouseNote = textBox8.Text.Trim();
+            string warehouseLocation = textBox9.Text.Trim();
+
+
+            foreach (DataGridViewRow dr in dataGridView9.Rows)
+            {
+                if (dr.Cells[1].Value.ToString().Equals(warehouseName))
+                {
+                    MessageBox.Show("已有..");
+                    return;
+                }
+            }
+
+            if (warehouseName.Equals(""))
+            {
+                MessageBox.Show("value is null");
+                return;
+            }
+            else
+            {
+                string strSql = string.Format("INSERT INTO T_warehouse(name,type,note,location) VALUES(N'{0}'，N'{1}'，N'{2}'，N'{3}')", warehouseName,warehouseType,warehouseNote,warehouseLocation);
+
+                if (MySqlConn.DoCommand(strSql) > 0)
+                {
+                    textBox7.Text = "";
+                    textBox8.Text = "";
+                    textBox9.Text = "";
+                    textBox10.Text = "";
+                    sx_dataGridview9WareHouse();
+                    MessageBox.Show("Successfully");
+                }
+                else
+                {
+                    MessageBox.Show("error");
+                }
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            string warehouseName = textBox7.Text.Trim();
+            string warehouseType = textBox10.Text.Trim();
+            string warehouseNote = textBox8.Text.Trim();
+            string warehouseLocation = textBox9.Text.Trim();
+
+            if (logisticsTypeId == -1)
+            {
+                MessageBox.Show("未选择存储");
+                return;
+            }
+            foreach (DataGridViewRow dr in dataGridView8.Rows)
+            {
+                if (dr.Cells[1].Value.ToString().Equals(warehouseName) && !dr.Cells[0].Value.ToString().Equals(wareHouseId))
+                {
+                    MessageBox.Show("与现有存储重名");
+                    return;
+                }
+            }
+
+            if (warehouseName.Equals(""))
+            {
+                MessageBox.Show("value is null");
+                return;
+            }
+            else
+            {
+                string strSql = string.Format("UPDATE T_warehouse SET name =N'{0}',type =N'{1}',note =N'{2}',location =N'{3}' WHERE id = {4}", warehouseName,warehouseType,warehouseNote,warehouseLocation,wareHouseId);
+
+                if (MySqlConn.DoCommand(strSql) > 0)
+                {
+                    textBox7.Text = "";
+                    textBox8.Text = "";
+                    textBox9.Text = "";
+                    textBox10.Text = "";
+                    sx_dataGridview9WareHouse();
+                    wareHouseId = -1;
+                    MessageBox.Show("Successfully");
+
+                }
+                else
+                {
+                    MessageBox.Show("error");
+                }
+            }
+        }
+        private void dataGridView9_CellClick(object sender, MouseEventArgs e)
+        {
+            if (dataGridView9.CurrentRow != null)
+            {
+                int index = dataGridView9.CurrentRow.Index;
+                DataGridViewCellCollection cl = dataGridView9.Rows[index].Cells;
+
+                wareHouseId = Convert.ToInt16(cl[0].Value);
+                textBox7.Text = cl[1].Value.ToString();
+                textBox10.Text = cl[2].Value.ToString();
+                textBox8.Text = cl[3].Value.ToString();
+                textBox9.Text = cl[4].Value.ToString();
+            }
+            else
+            {
+                wareHouseId = -1;
+            }
+        }
+
+        private void sx_dataGridview9WareHouse()
+        {
+            dataGridView9.DataSource = null;
+            dataGridView9.DataSource = xuxSeecion.WareHouseTable;
+
+            dataGridView9.Columns[xuxSeecion.WareHouseTable.Columns.IndexOf("name")].HeaderCell.Value = "容器名称";
+            dataGridView9.Columns[xuxSeecion.WareHouseTable.Columns.IndexOf("type")].HeaderCell.Value = "容器类型";
+            dataGridView9.Columns[xuxSeecion.WareHouseTable.Columns.IndexOf("note")].HeaderCell.Value = "备注";
+            dataGridView9.Columns[xuxSeecion.WareHouseTable.Columns.IndexOf("location")].HeaderCell.Value = "位置";
+        }
+        #endregion
 
 
         #region 物流类型
@@ -269,7 +390,7 @@ namespace CompanyManager
             }
             foreach (DataGridViewRow dr in dataGridView8.Rows)
             {
-                if (dr.Cells[1].Value.ToString().Equals(logisticsTypeName))
+                if (dr.Cells[1].Value.ToString().Equals(logisticsTypeName) && !dr.Cells[0].Value.ToString().Equals(logisticsTypeId))
                 {
                     MessageBox.Show("与现有类型重名");
                     return;
@@ -337,11 +458,14 @@ namespace CompanyManager
             dataGridView4.DataGridViewInit();
             dataGridView8.DataGridViewInit();
             dataGridView8.MouseClick += new MouseEventHandler(dataGridView8_CellClick);
+            dataGridView9.DataGridViewInit();
+            dataGridView9.MouseClick += new MouseEventHandler(dataGridView9_CellClick);
 
             sx_dataGridview1fileType();
             sx_dataGridview2userType();
             sx_dataGridview4userPower();
             sx_dataGridview8LogisticsType();
+            sx_dataGridview9WareHouse();
         }
         #endregion
 
@@ -358,5 +482,7 @@ namespace CompanyManager
         }
 
         #endregion
+
+       
     }
 }

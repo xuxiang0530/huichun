@@ -74,6 +74,20 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.dataGridView8 = new System.Windows.Forms.DataGridView();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.dataGridView9 = new System.Windows.Forms.DataGridView();
+            this.button10 = new System.Windows.Forms.Button();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -95,6 +109,9 @@
             this.tabPage4.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -350,6 +367,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -363,7 +381,7 @@
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1321, 670);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "人员";
@@ -446,7 +464,7 @@
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1321, 670);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "文件管理";
@@ -640,6 +658,152 @@
             this.dataGridView8.Size = new System.Drawing.Size(320, 627);
             this.dataGridView8.TabIndex = 0;
             // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.label13);
+            this.tabPage5.Controls.Add(this.textBox10);
+            this.tabPage5.Controls.Add(this.label12);
+            this.tabPage5.Controls.Add(this.textBox9);
+            this.tabPage5.Controls.Add(this.label11);
+            this.tabPage5.Controls.Add(this.label10);
+            this.tabPage5.Controls.Add(this.textBox8);
+            this.tabPage5.Controls.Add(this.button9);
+            this.tabPage5.Controls.Add(this.groupBox9);
+            this.tabPage5.Controls.Add(this.button10);
+            this.tabPage5.Controls.Add(this.textBox7);
+            this.tabPage5.Controls.Add(this.label9);
+            this.tabPage5.Location = new System.Drawing.Point(4, 25);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1321, 670);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "存储管理";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(722, 237);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(37, 15);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "描述";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(722, 145);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(37, 15);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "名称";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(824, 232);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(323, 25);
+            this.textBox8.TabIndex = 13;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(864, 349);
+            this.button9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(100, 27);
+            this.button9.TabIndex = 12;
+            this.button9.Text = "保存修改";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.dataGridView9);
+            this.groupBox9.Location = new System.Drawing.Point(7, 12);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox9.Size = new System.Drawing.Size(658, 655);
+            this.groupBox9.TabIndex = 8;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "存储管理";
+            // 
+            // dataGridView9
+            // 
+            this.dataGridView9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView9.Location = new System.Drawing.Point(8, 22);
+            this.dataGridView9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dataGridView9.Name = "dataGridView9";
+            this.dataGridView9.Size = new System.Drawing.Size(642, 627);
+            this.dataGridView9.TabIndex = 0;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(730, 349);
+            this.button10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(100, 27);
+            this.button10.TabIndex = 11;
+            this.button10.Text = "增加容器";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click_1);
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(824, 140);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(323, 25);
+            this.textBox7.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(722, 92);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(436, 15);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "为避免删除已被选用的容器,容器只增加,可修改名字描述,不删除";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(722, 287);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(37, 15);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "位置";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(824, 282);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(323, 25);
+            this.textBox9.TabIndex = 16;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(722, 190);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(67, 15);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "容器类型";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(824, 185);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(323, 25);
+            this.textBox10.TabIndex = 18;
+            // 
             // AdminManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -677,6 +841,10 @@
             this.tabPage4.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -728,5 +896,19 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.DataGridView dataGridView8;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.DataGridView dataGridView9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox9;
     }
 }
