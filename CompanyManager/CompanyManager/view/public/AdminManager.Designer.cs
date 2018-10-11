@@ -75,6 +75,10 @@
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.dataGridView8 = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -84,10 +88,6 @@
             this.button10 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -680,6 +680,40 @@
             this.tabPage5.Text = "存储管理";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(722, 190);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(67, 15);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "容器类型";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(824, 185);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(323, 25);
+            this.textBox10.TabIndex = 18;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(722, 287);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(37, 15);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "位置";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(824, 282);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(323, 25);
+            this.textBox9.TabIndex = 16;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -708,7 +742,7 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(864, 349);
+            this.button9.Location = new System.Drawing.Point(1029, 407);
             this.button9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(100, 27);
@@ -743,7 +777,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(730, 349);
+            this.button10.Location = new System.Drawing.Point(850, 407);
             this.button10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(100, 27);
@@ -769,40 +803,6 @@
             this.label9.Size = new System.Drawing.Size(436, 15);
             this.label9.TabIndex = 10;
             this.label9.Text = "为避免删除已被选用的容器,容器只增加,可修改名字描述,不删除";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(722, 287);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 15);
-            this.label12.TabIndex = 17;
-            this.label12.Text = "位置";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(824, 282);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(323, 25);
-            this.textBox9.TabIndex = 16;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(722, 190);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(67, 15);
-            this.label13.TabIndex = 19;
-            this.label13.Text = "容器类型";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(824, 185);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(323, 25);
-            this.textBox10.TabIndex = 18;
             // 
             // AdminManager
             // 

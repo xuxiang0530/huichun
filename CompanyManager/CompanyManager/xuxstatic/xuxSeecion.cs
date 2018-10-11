@@ -88,7 +88,7 @@ namespace CompanyManager
 
         public static void sxWareHouse()
         {
-            WareHouseTable = CompanyManager.DataManager.MySqlConn.GetDataSet("select id,type,note,location from T_warehouse").Tables[0];
+            WareHouseTable = CompanyManager.DataManager.MySqlConn.GetDataSet("select id,name,type,note,location from T_warehouse").Tables[0];
         }
     }
 }

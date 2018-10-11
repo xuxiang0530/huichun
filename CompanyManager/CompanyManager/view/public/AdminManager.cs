@@ -224,44 +224,49 @@ namespace CompanyManager
         #region 容器管理
         private void button10_Click_1(object sender, EventArgs e)
         {
-            string warehouseName = textBox7.Text.Trim();
-            string warehouseType = textBox10.Text.Trim();
-            string warehouseNote = textBox8.Text.Trim();
-            string warehouseLocation = textBox9.Text.Trim();
+            wareHouseId = -1;
+            textBox7.Text = "";
+            textBox8.Text = "";
+            textBox9.Text = "";
+            textBox10.Text = "";
+            //string warehouseName = textBox7.Text.Trim();
+            //string warehouseType = textBox10.Text.Trim();
+            //string warehouseNote = textBox8.Text.Trim();
+            //string warehouseLocation = textBox9.Text.Trim();
 
 
-            foreach (DataGridViewRow dr in dataGridView9.Rows)
-            {
-                if (dr.Cells[1].Value.ToString().Equals(warehouseName))
-                {
-                    MessageBox.Show("已有..");
-                    return;
-                }
-            }
+            //foreach (DataGridViewRow dr in dataGridView9.Rows)
+            //{
+            //    if (dr.Cells[1].Value.ToString().Equals(warehouseName))
+            //    {
+            //        MessageBox.Show("已有..");
+            //        return;
+            //    }
+            //}
 
-            if (warehouseName.Equals(""))
-            {
-                MessageBox.Show("value is null");
-                return;
-            }
-            else
-            {
-                string strSql = string.Format("INSERT INTO T_warehouse(name,type,note,location) VALUES(N'{0}'，N'{1}'，N'{2}'，N'{3}')", warehouseName,warehouseType,warehouseNote,warehouseLocation);
+            //if (warehouseName.Equals(""))
+            //{
+            //    MessageBox.Show("value is null");
+            //    return;
+            //}
+            //else
+            //{
+            //    string strSql = string.Format("INSERT INTO T_warehouse(name,type,note,location) VALUES('N{0}',N'{1}',N'{2}',N'{3}')", warehouseName,warehouseType,warehouseNote,warehouseLocation);
 
-                if (MySqlConn.DoCommand(strSql) > 0)
-                {
-                    textBox7.Text = "";
-                    textBox8.Text = "";
-                    textBox9.Text = "";
-                    textBox10.Text = "";
-                    sx_dataGridview9WareHouse();
-                    MessageBox.Show("Successfully");
-                }
-                else
-                {
-                    MessageBox.Show("error");
-                }
-            }
+            //    if (MySqlConn.DoCommand(strSql) > 0)
+            //    {
+            //        textBox7.Text = "";
+            //        textBox8.Text = "";
+            //        textBox9.Text = "";
+            //        textBox10.Text = "";
+            //        sx_dataGridview9WareHouse();
+            //        MessageBox.Show("Successfully");
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("error");
+            //    }
+            //}
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -270,8 +275,9 @@ namespace CompanyManager
             string warehouseType = textBox10.Text.Trim();
             string warehouseNote = textBox8.Text.Trim();
             string warehouseLocation = textBox9.Text.Trim();
+            string strSql;
 
-            if (logisticsTypeId == -1)
+            if (wareHouseId == -1)
             {
                 MessageBox.Show("未选择存储");
                 return;
@@ -290,9 +296,9 @@ namespace CompanyManager
                 MessageBox.Show("value is null");
                 return;
             }
-            else
+            else if(wareHouseId == -1)
             {
-                string strSql = string.Format("UPDATE T_warehouse SET name =N'{0}',type =N'{1}',note =N'{2}',location =N'{3}' WHERE id = {4}", warehouseName,warehouseType,warehouseNote,warehouseLocation,wareHouseId);
+                strSql = string.Format("INSERT INTO T_warehouse(name,type,note,location) VALUES(N'{0}',N'{1}',N'{2}',N'{3}')", warehouseName, warehouseType, warehouseNote, warehouseLocation);
 
                 if (MySqlConn.DoCommand(strSql) > 0)
                 {
@@ -300,6 +306,26 @@ namespace CompanyManager
                     textBox8.Text = "";
                     textBox9.Text = "";
                     textBox10.Text = "";
+                    xuxSeecion.sxWareHouse();
+                    sx_dataGridview9WareHouse();
+                    MessageBox.Show("Successfully");
+                }
+                else
+                {
+                    MessageBox.Show("error");
+                }
+            }
+            else
+            {
+                strSql = string.Format("UPDATE T_warehouse SET name =N'{0}',type =N'{1}',note =N'{2}',location =N'{3}' WHERE id = {4}", warehouseName,warehouseType,warehouseNote,warehouseLocation,wareHouseId);
+
+                if (MySqlConn.DoCommand(strSql) > 0)
+                {
+                    textBox7.Text = "";
+                    textBox8.Text = "";
+                    textBox9.Text = "";
+                    textBox10.Text = "";
+                    xuxSeecion.sxWareHouse();
                     sx_dataGridview9WareHouse();
                     wareHouseId = -1;
                     MessageBox.Show("Successfully");

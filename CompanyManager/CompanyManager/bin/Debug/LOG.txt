@@ -1,0 +1,2 @@
+2018/10/11 21:12:00  You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '£¨N'A'£¨N'A'£¨N'A')' at line 1
+2018/10/11 21:15:29  You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '£¨'¿‡–Õ≤‚ ‘'£¨'√Ë ˆ≤‚ ‘'£¨'Œª÷√≤‚ ‘')' at line 1
