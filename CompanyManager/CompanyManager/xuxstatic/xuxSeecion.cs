@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Collections;
 using CompanyManager.model;
+using System.Drawing;
 
 namespace CompanyManager
 {
@@ -12,6 +13,7 @@ namespace CompanyManager
         public static string ERRMESSAGE;
 
         private static DataTable _wareHouseTable;
+        private static System.Drawing.Size _mainPanel2Size;
         
 
         public static DataTable CardTypeList
@@ -50,6 +52,19 @@ namespace CompanyManager
             set
             {
                 _wareHouseTable = value;
+            }
+        }
+
+        public static Size MainPanel2Size
+        {
+            get
+            {
+                return _mainPanel2Size;
+            }
+
+            set
+            {
+                _mainPanel2Size = value;
             }
         }
 

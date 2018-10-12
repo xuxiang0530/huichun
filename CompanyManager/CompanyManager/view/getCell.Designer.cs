@@ -69,13 +69,14 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(496, 45);
+            this.button1.Location = new System.Drawing.Point(498, 42);
             this.button1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 20);
             this.button1.TabIndex = 2;
             this.button1.Text = "载入供体信息";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 

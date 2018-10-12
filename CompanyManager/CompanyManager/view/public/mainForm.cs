@@ -16,7 +16,6 @@ namespace CompanyManager
         public mainForm()
         {
             InitializeComponent();
-
             init();
         }
 
@@ -59,6 +58,11 @@ namespace CompanyManager
         {
             EmployeeManager em = new EmployeeManager();
             em.ShowDialog();
+        }
+
+        private void mainForm_SizeChanged(object sender, EventArgs e)
+        {
+            xuxSeecion.MainPanel2Size = this.splitContainer1.Panel2.ClientSize;
         }
     }
 }

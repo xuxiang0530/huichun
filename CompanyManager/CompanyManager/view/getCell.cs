@@ -15,6 +15,12 @@ namespace CompanyManager.view
         public getCell()
         {
             InitializeComponent();
+            this.ClientSize = xuxSeecion.MainPanel2Size;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

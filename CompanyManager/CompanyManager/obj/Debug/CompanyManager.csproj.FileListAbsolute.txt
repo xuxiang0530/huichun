@@ -78,3 +78,4 @@ D:\zhuXueJing\huichunManagerSystem\huichun\CompanyManager\CompanyManager\bin\Deb
 D:\zhuXueJing\huichunManagerSystem\huichun\CompanyManager\CompanyManager\bin\Debug\Microsoft.Office.Interop.Word.dll
 D:\zhuXueJing\huichunManagerSystem\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.EmployeeManager.resources
 D:\zhuXueJing\huichunManagerSystem\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.csprojResolveAssemblyReference.cache
+D:\xux_work\xuxTestProject\huichun\CompanyManager\CompanyManager\obj\Debug\CompanyManager.EmployeeManager.resources

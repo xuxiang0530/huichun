@@ -285,3 +285,6 @@ and A.userpowerid = B.id;
 
 
 alter table T_warehouse add name varchar(50);
+
+
+alter table T_user add phone varchar(30);

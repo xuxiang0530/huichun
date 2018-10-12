@@ -42,7 +42,7 @@ namespace CompanyManager
             {
                 textBox1.Text = "tianyaxx@163.com";
                 textBox2.Text = "test";
-                MySqlConn.ConnetStr = "192.168.1.102";
+                MySqlConn.ConnetStr = "192.168.1.103";
 
             }
         }
